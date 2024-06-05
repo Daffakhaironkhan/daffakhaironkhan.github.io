@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daffa' Khairon Khan</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f0f0; /* Warna latar belakang */
+      font-family: Arial, sans-serif; /* Ganti font */
+      padding-top: 4.5rem; /* Padding atas untuk navbar tetap */
+    }
+    .navbar {
+      background-color: #fff; /* Warna navbar */
+      position: fixed; /* Navbar menetap */
+      width: 100%; /* Lebar penuh */
+      top: 0; /* Atur navbar di bagian atas */
+      z-index: 1000; /* Tingkatkan z-index agar navbar berada di atas konten */
+    }
+    .navbar-brand {
+      color: #007bff; /* Warna teks navbar-brand */
+    }
+    .navbar-brand:hover {
+      color: #0056b3; /* Warna teks navbar-brand saat hover */
+    }
+    .navbar-nav .nav-link {
+      color: #000; /* Warna teks nav-link */
+    }
+    .navbar-nav .nav-link:hover {
+      color: #0056b3; /* Warna teks nav-link saat hover */
+    }
+    .container {
+      background-color: #fff; /* Warna latar belakang konten */
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 50px; /* Jarak antara konten dan navbar */
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .card-img {
+      width: 100%; /* Menyesuaikan lebar foto */
+      height: 250px; /* Menyesuaikan tinggi foto */
+      object-fit: cover; /* Menghindari distorsi */
+      border-radius: 10px 10px 10px 10px; /* Membuat sudut terbulat */
+    }
+    .card-body {
+      border-radius: 0 0 10px 10px; /* Membuat sudut terbulat pada sisi bawah */
+    }
+    .card-title {
+      color: #007bff; /* Warna teks card-title */
+    }
+    .card-heading {
+      color: #555; /* Warna teks card-heading */
+      font-size: 1rem; /* Ukuran teks card-heading */
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fd;>
+    <div class="container">
+      <h1></h1><a class="navbar-brand text-center" href="#" >Portofolio</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about-me">About Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pro-experiences">Professional Experiences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#org-experiences">Organizational Experiences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lead-experiences">Leadership Experiences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project-exp">Project Experiences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#certification-license">Certification and License</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skill">Skills and Languages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#event-certificate">Event Certificate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" id="about-me">
+    <h1 class="mb-4">About Me</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/daffa.jpg" class="card-img" alt="Foto About Me">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Daffa' Khairon Khan</h5>
+            <p class="card-text">Daffa is a dedicated student of Informatics Engineering at Jenderal Soedirman University, known for his exceptional adaptability and communicative prowess. He effectively balances his academic pursuits with active involvement in multiple organizations, focusing on both project management and social impact initiatives. With over seven projects under his belt, Daffa applies his keen analytical skills and deep understanding of technology, information, and communication challenges. His expertise is further enhanced by his background in Business Management and Marketing, equipping him with a robust skill set suited for roles such as business analyst, system analyst, and technical writer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="education">
+    <h1 class="mb-4">Education</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Jenderal Soedirman University</h5>
+            <h6 class="card-heading">Informatics (August 2021 - Present)</h6>
+            <p class="card-text">Current GPA: 3,80/4,00</p>
+            <p class="card-text">Relevant courses: Algorithms and Programming, Informatics Logic, Information Systems, Human and Computer Interaction, Computer Organization and Structure, Operating Systems, Data Structures, Databases, Data Mining, Object-Based Programming, Systems Analysis and Design, Software Engineering, Web Programming, Web Design, E-Commerce, Mobile Programming, Software Quality Testing, Embedded Systems Programming, Project Management, Enterprise Resource Planning, Customer Relationship Management, Computer Networking, Information Technology Infrastructure, Multimedia Technology, Artificial Intelligence, Machine Learning, Fuzzy Logic, Expert Systems, Decision Support Systems, Medical Informatics, Information Security, Information Systems Auditing, Computer Forensics, etc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Diponegoro University</h5>
+            <h6 class="card-heading">Urban Planning (August 2020 - July 2021)</h6>
+            <p class="card-text">Relevant courses: Geographic Information Systems (GIS), Urban Planning, communication techniques, Internet of Things (IoT), etc.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">SMA Negeri 2 Cirebon</h5>
+            <h6 class="card-heading">Natural Science (January 2018 - June 2020)</h6>
+            <p class="card-text">Grade: 87,20/100</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">SMA Negeri 1 Sumber</h5>
+            <h6 class="card-heading">Natural Science (July 2017 - December 2017)</h6>
+            <p class="card-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="pro-experiences">
+    <h1 class="mb-4">Professional Experiences</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/kominfo.png" class="card-img" alt="Foto Professional Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">MINISTRY OF COMMUNICATION AND INFORMATION TECHNOLOGY </h5>
+            <h6 class="card-heading">Internship Software Tester (July 2023 - August 2023)</h6>
+            <p class="card-text"><ul type="circle">
+                <li>Conduct comprehensive testing of mobile apps on Android and iOS platforms to ensure functionality and compatibility.</li>
+                <li>Identify and document bugs accurately, facilitating swift resolution by the development team.</li>
+                <li>Collaborate and communicate on quality issues and improvement recommendations to address concerns effectively and propose enhancements, fostering a culture of continuous improvement.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/digmar.png" class="card-img" alt="Foto Professional Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">MIHR Indonesia</h5>
+            <h6 class="card-heading">Digital Marketing (December 2022 - April 2023)</h6>
+            <p class="card-text"><ul type="circle">
+                <li>Plan, develop, and execute effective digital marketing strategies to increase brand awareness.</li>
+                <li>Build and manage brand presence on various social media platforms to increase user engagement.</li>
+                <li>Collaborate with various internal and external teams, including convection, graphic designers, videographers, photographers, and media partners.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="org-experiences">
+    <h1 class="mb-4">Organizational Experiences</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/org1.jpg" class="card-img" alt="Foto Organizational Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Himpunan Mahasiswa Perintis D-3 Perencanaan Wilayah dan Kota - Diponegoro University </h5>
+            <h6 class="card-heading">Staff of Creative Media (February 2021 - June 2021)</h6>
+            <p class="card-text"><ul type="circle">
+                <li>Social Media Management of HMPSDPWK.</li>
+                <li>Develop Plano Fest and Podcast Tukang Rencana.</li>
+                <li>Branding D-3 Perencanaan Wilayah dan Kota PSDKU Universitas Diponegoro and HMPSDPWK.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="lead-experiences">
+    <h1 class="mb-4">Leadership Experiences</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lead1.jpg" class="card-img" alt="Foto Leadership Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Kuliah Umum Penerapan Data Science & AI </h5>
+            <h6 class="card-heading">Event Coordinator (May 2022) </h6>
+            <p class="card-text"><ul type="circle">
+                <li>Preparing and supervising the event.</li>
+                <li>Being a contact person for all committees and all students of the Informatics study program at Jenderal Soedirman University.</li>
+                <li>Prepare all the needs in the implementation of the event  such as meeting rooms, documentation, various equipment, etc.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lead2.jpg" class="card-img" alt="Foto Leadership Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Pemilihan Raya Calon Ketua Himpunan HMIF </h5>
+            <h6 class="card-heading">Staff of Public Relations (January 2022) </h6>
+            <p class="card-text"><ul type="circle">
+                <li>Serve as the primary contact person for all Informatics study program students at Jenderal Soedirman University.</li>
+                <li>Generate invitations, captions, and informational announcements pertaining to PEMIRA.</li>
+                <li>Prepare all the needs in the implementation of the event  such as meeting rooms, documentation, various equipment, etc.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lead3.jpg" class="card-img" alt="Foto Leadership Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">University Day - SMA N 2 Cirebon </h5>
+            <h6 class="card-heading">Staff of Facilitator (October 2021 - January 2022) </h6>
+            <p class="card-text"><ul type="circle">
+                <li>Facilitate interactions between mentors and students, providing guidance and briefings.</li>
+                <li>Bridge communication among organizers, mentors, and students.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lead4.jpg" class="card-img" alt="Foto Leadership Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Musyawarah Anggota UKM Seni dan Olahraga (SENIOR) </h5>
+            <h6 class="card-heading">Staff of Accommodation, Transportation, and Equipment (November 2021 - December 2021) </h6>
+            <p class="card-text"><ul type="circle">
+                <li>Ensure all necessary preparations for conducting member meetings of UKM Seni dan Olahraga (SENIOR) are completed, including arranging meeting rooms, documentation, and other requirements.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lead5.jpg" class="card-img" alt="Foto Leadership Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Scholar Show and Study Banding HMPSDPWK </h5>
+            <h6 class="card-heading">Staff of Equipment (April 2021 - May 2021) </h6>
+            <p class="card-text"><ul type="circle">
+                <li>Ensure all necessary preparations for event implementation are completed, including arranging meeting rooms, documentation, various equipment, and other essentials.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lead6.jpg" class="card-img" alt="Foto Leadership Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Makrab Angkatan 2019-2020 D-3 Perencanaan Wilayah dan Kota </h5>
+            <h6 class="card-heading">Vice Project Officer (January 2021) </h6>
+            <p class="card-text"><ul type="circle">
+                <li>Supervise, control, organize, manage, lead committees, make decisions, and solve problems effectively.</li>
+            </ul></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="project-exp">
+    <h1 class="mb-4">Project Experiences</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/bangkode.png" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Mobile and Web Application Online Course Bangcode</h5>
+            <h6 class="card-heading">Project Manager (2023)</h6>
+            <p class="card-text">The "BangKode" application, designed to serve as a learning platform, particularly for students, aims to provide recommendations on programming language and framework tutorial videos for general audiences.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/mihr.png" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Web Company Profile MIHR Indonesia</h5>
+            <h6 class="card-heading">Project Manager (2023)</h6>
+            <p class="card-text">MIHR Indonesia's web company profile serves as a comprehensive overview of the company's services, mission, and values.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/tanyain.png" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Web Application Tanyain</h5>
+            <h6 class="card-heading">(2023)</h6>
+            <p class="card-text">Web Application "Tanyain" is a user-friendly platform designed for Q&A (Question and Answer) interactions. It facilitates seamless communication between users by allowing them to ask questions, provide answers, and engage in discussions on various topics.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/sisgm.png" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Showroom Information System</h5>
+            <h6 class="card-heading">(2023)</h6>
+            <p class="card-text">The Showroom Information System is a digital platform specifically designed to facilitate the management and operational arrangement within showrooms. By utilizing this system, showrooms can efficiently manage vehicle inventory, customer information, and sales transactions.</p>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/boemi.png" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Web Company Profile BoemiDahayu</h5>
+            <h6 class="card-heading">(2023)</h6>
+            <p class="card-text">Boemi Dahayu's web company profile provides insight into the company's ethos, offerings, goals and product marketing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/blater.jpg" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Web Application E-Commerce Blater Ngiler</h5>
+            <h6 class="card-heading">(2022)</h6>
+            <p class="card-text">Blater Ngiler's E-Commerce Web Application is a user-friendly digital platform designed to provide an effortless shopping experience for customers. It offers a wide range of products, from groceries to household items, allowing users to browse, select, and purchase items conveniently from their devices.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/panor.jpg" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Web Company Profile Panorama Kost</h5>
+            <h6 class="card-heading">(2022)</h6>
+            <p class="card-text">Panorama Kost's web company profile provides an informative overview of its lodging services. It showcases Panorama Kost's commitment to offering comfortable and affordable accommodations for students and professionals.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/vol.png" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar : Tantangan Dunia Pendidikan dimasa Pandemi - Beasiswa Titik Nol</h5>
+            <h6 class="card-heading">Campaign Volunteer (2021)</h6>
+            <p class="card-text">The "Tantangan Dunia Pendidikan dimasa Pandemi" webinar is an online discussion session that addresses the challenges faced by the education sector during the COVID-19 pandemic. This webinar also reviews the "Titik Nol" scholarship program aimed at assisting students affected by the pandemic in continuing their education.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/mc2.jpg" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar : Berpikir Digital ala Gen Z - Jenderal Soedirman University </h5>
+            <h6 class="card-heading">Master of Ceremony (2021)</h6>
+            <p class="card-text">The "Digital Thinking ala Gen Z" webinar provides insights into the digital mindset and behavior of Generation Z. It explores how this demographic approaches technology, social media, and digital innovation, offering valuable perspectives for businesses and educators aiming to engage with this tech-savvy generation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/mc1.jpg" class="card-img" alt="Foto Project Experiences">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Kuliah Umum Kewirausahaan - Diponegoro University </h5>
+            <h6 class="card-heading">Master of Ceremony (2021)</h6>
+            <p class="card-text">A guest lecture on entrepreneurship provides valuable insights into the principles, strategies, and practices of entrepreneurship. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="certification-license">
+    <h1 class="mb-4">Certification and License</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lic1.png" class="card-img" alt="Foto Certification License">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Flutter Mobile App Development by Sanbercode</h5>
+            <h6 class="card-heading">(2023)</h6>
+            <p class="card-text">The Flutter Mobile App Development bootcamp by Sanbercode offers an intensive learning experience focused on mastering Flutter, a popular framework for building mobile applications. Participants engage in hands-on activities, guided tutorials, and real-world projects to gain practical skills in developing cross-platform mobile apps efficiently.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lic2.png" class="card-img" alt="Foto Certification License">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">React Introduction by Sanbercode</h5>
+            <h6 class="card-heading">(2023)</h6>
+            <p class="card-text">The React Introduction bootcamp by Sanbercode provides a comprehensive introduction to React, a JavaScript library for building user interfaces. Through interactive lectures, hands-on exercises, and practical projects, participants learn the fundamentals of React development, including component-based architecture, state management, and responsive web design techniques.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/lic3.png" class="card-img" alt="Foto Certification License">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Laravel Web Development by Sanbercode</h5>
+            <h6 class="card-heading">(2023)</h6>
+            <p class="card-text">The Laravel Web Development bootcamp by Sanbercode offers an intensive program focused on mastering Laravel, a popular PHP framework for building web applications. Participants learn essential concepts such as routing, authentication, database management, and MVC architecture through hands-on projects and guided tutorials. The bootcamp equips participants with the skills and knowledge needed to develop robust and scalable web applications using Laravel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="skill">
+    <h1 class="mb-4">Skills and Languages</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Technical</h5>
+            <p class="card-text">Microsoft Office (Word, Excel, PowerPoint, Visio, Access, Project), C++, C, Java, HTML, CSS, Bootstrap, PHP, JavaScript, MySQL, WordPress, Play Framework, Laravel, Swift, Flutter, Ionic, Visual Studio Code, NetBeans, Android Studio, GitHub, GitLab, Accurate Online.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Interpersonal</h5>
+            <p class="card-text">Programming and Software Development, Data Structures and Algorithms, Database Management, Web Development, Mobile App Development, Cybersecurity, Cloud Computing, Artificial Intelligence and Machine Learning, DevOps and CI/CD, Software Testing and Quality Assurance, Network Administration, Human-Computer Interaction (HCI), Technical Writing and Documentation, Project Management, Data Analysis and Visualization.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Language</h5>
+            <p class="card-text">Bahasa Indonesia (Native), English (Intermediate).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="event-certificate">
+    <h1 class="mb-4">Event Certificate</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/ser1.png" class="card-img" alt="Event Certificate">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar : Implementasi dan Strategi Mewujudkan Smart City di Indonesia</h5>
+            <p class="card-text">The "Implementasi dan Strategi Mewujudkan Smart City di Indonesia" webinar provides insights into the efforts and strategies required to realize the concept of smart cities in Indonesia. It discusses the implementation challenges, technological innovations, and strategic planning necessary for cities to leverage digital technologies effectively to enhance urban living standards, sustainability, and efficiency.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/ser2.png" class="card-img" alt="Event Certificate">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar : Empowering Smart Management "Smart City and Smart Business</h5>
+            <p class="card-text">The "Empowering Smart Management: Smart City and Smart Business" webinar focuses on how smart city initiatives intersect with smart business practices. It delves into strategies for businesses to leverage smart city infrastructure and data to enhance operations, customer engagement, and sustainability. Additionally, it explores the symbiotic relationship between smart cities and businesses, emphasizing the potential for collaboration and innovation to drive economic growth and social progress.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/ser6.png" class="card-img" alt="Event Certificate">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Pendidikan Karakter bagi Mahasiswa Baru Universitas Diponegoro TA 2020/2021</h5>
+            <p class="card-text">"Pendidikan Karakter bagi Mahasiswa Baru Universitas Diponegoro TA 2020/2021" it is a program designed to shape the character of new students at Diponegoro University. This program aims to develop moral values, ethics, leadership, and social skills needed in academic and social life. Through a series of activities such as seminars, workshops, and social events, new students are given the opportunity to gain a deep understanding of the importance of having strong and responsible character in navigating campus life and their future.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/ser3.png" class="card-img" alt="Event Certificate">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar Economic Festival UI 2020 : Driving Business with Social Media. Is It Possible?</h5>
+            <p class="card-text">The "Driving Business with Social Media. Is It Possible?" discusses the feasibility and effectiveness of using social media as a tool for business growth. It explores strategies, case studies, and insights on leveraging social media platforms to promote products or services, engage customers, and drive sales. Attendees gain valuable perspectives on harnessing the power of social media to achieve business objectives and maximize market reach.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/ser4.png" class="card-img" alt="Event Certificate">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar Economic Festival UI 2020 : New Ecosystem for Creative Digital Entrepreneur</h5>
+            <p class="card-text">The "New Ecosystem for Creative Digital Entrepreneurship" explores innovative ecosystems and opportunities for creative digital entrepreneurship. It delves into emerging trends, technologies, and strategies that empower entrepreneurs to thrive in the digital landscape, fostering discussions on collaboration, innovation, and sustainable business models. Attendees gain insights into building and navigating dynamic digital ecosystems to unlock growth and success in the creative entrepreneurship space.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-4">
+          <img src="img/ser5.png" class="card-img" alt="Event Certificate">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Webinar : Menatap Masa Depan Bersama D3 PWK PSDKU Universitas Diponegoro</h5>
+            <p class="card-text">The webinar "Menatap Masa Depan Bersama D3 PWK PSDKU Universitas Diponegoro" discusses future projections for students of the D3 Urban and Regional Planning Program at the Off-Campus Program of Diponegoro University. This webinar covers career opportunities, industry challenges, and preparations needed for students to face the future in the field of urban and regional planning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="contact">
+    <h1 class="mb-4">Contact</h1>
+    <div class="card">
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Linked In</h5>
+            <p class="card-text"><a href="https://www.linkedin.com/in/daffakhaironkhan/">Daffa Khairon Khan</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Phone Number</h5>
+            <p class="card-text">(+62) 877 3094 4682</p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">E-Mail Address</h5>
+            <p class="card-text"><a href="mailto:daffakk1978@gmail.com">daffakk1978@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="row no-gutters mb-4">
+        <div class="col-md-12">
+          <div class="card-body">
+            <h5 class="card-title">Instagram</h5>
+            <p class="card-text"><a href="https://www.instagram.com/daffakk__/">@daffakk__</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
