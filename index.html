@@ -6,447 +6,572 @@
   <title>Portfolio - Daffa' Khairon Khan</title>
   <link rel="icon" type="image/png" href="img/daffa.jpg">
 
-  <!-- Bootstrap 4.5.2 -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
   <style>
     :root{
-      --bg: #f3f5f7;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --text: #172033;
+      --muted: #667085;
       --primary: #0b5ed7;
-      --border: rgba(17,24,39,.08);
-      --shadow: 0 10px 30px rgba(17,24,39,.06);
-      --radius: 16px;
+      --primary-soft: rgba(11,94,215,.10);
+      --border: rgba(15,23,42,.09);
+      --shadow: 0 14px 40px rgba(15,23,42,.08);
+      --shadow-soft: 0 8px 24px rgba(15,23,42,.06);
+      --radius: 22px;
     }
 
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(11,94,215,.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(125,92,255,.08), transparent 28%),
+        var(--bg);
       color: var(--text);
-      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans","Helvetica Neue",sans-serif;
-      padding-top: 86px; /* space for fixed navbar */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+      padding-top: 84px;
     }
 
-    /* Navbar */
-    .navbar {
-      background: rgba(227,242,253,.95);
-      backdrop-filter: blur(8px);
+    a{ color: var(--primary); }
+    a:hover{ color: #084aa9; }
+    .page{ max-width: 1120px; }
+
+    /* NAVBAR */
+    .navbar{
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(17,24,39,.06);
+      box-shadow: 0 8px 24px rgba(15,23,42,.05);
     }
-    .navbar .navbar-brand {
-      font-weight: 700;
-      letter-spacing: .2px;
+    .navbar-brand{
+      font-weight: 900;
+      letter-spacing: -.02em;
       color: var(--text) !important;
     }
-    .navbar .nav-link {
-      color: rgba(31,41,55,.85) !important;
-      font-weight: 500;
-      padding: .5rem .75rem;
+    .navbar-brand span{ color: var(--primary); }
+    .navbar .nav-link{
+      color: rgba(23,32,51,.78) !important;
+      font-weight: 700;
+      font-size: .92rem;
+      padding: .5rem .75rem !important;
+      border-radius: 999px;
     }
-    .navbar .nav-link:hover { color: var(--primary) !important; }
-    .navbar .nav-link.active { color: var(--primary) !important; font-weight: 700; }
-
-    /* Page container */
-    .page {
-      max-width: 1040px;
-    }
-
-    /* Section */
-    .section {
-      margin-bottom: 22px;
-    }
-    .section-header {
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      margin: 26px 0 12px;
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin: 0;
-    }
-    .section-subtitle {
-      margin: 0;
-      color: var(--muted);
-      font-size: .95rem;
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active{
+      color: var(--primary) !important;
+      background: var(--primary-soft);
     }
 
-    /* Cards */
-    .panel {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .item-card{
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      background: #fff;
-      transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 8px 20px rgba(17,24,39,.05);
-    }
-    .item-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(17,24,39,.08);
-    }
-    .item-img{
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      background: #e5e7eb;
-    }
-    @media (min-width: 768px){
-      .item-img{ height: 100%; min-height: 220px; }
-    }
-
-    .item-title{
-      font-weight: 800;
-      font-size: 1.1rem;
-      margin-bottom: .25rem;
-    }
-    .item-meta{
-      color: var(--muted);
-      font-size: .95rem;
-      margin-bottom: .75rem;
-    }
-    .item-text{
-      color: rgba(31,41,55,.9);
-      margin-bottom: 0;
-    }
-    .bullets{
-      padding-left: 1.1rem;
-      margin: .35rem 0 0;
-    }
-    .bullets li{ margin: .25rem 0; }
-
-    /* About highlight */
-    .about-name{
-      color: var(--primary);
-      font-weight: 900;
-      font-size: 1.25rem;
-      margin-bottom: .5rem;
-    }
-
-    /* Small helper */
-    .badge-soft{
-      display:inline-block;
-      padding:.25rem .55rem;
-      border-radius:999px;
-      background: rgba(11,94,215,.10);
-      color: var(--primary);
-      font-weight:700;
-      font-size:.8rem;
-    }
-    .badge-wrap{
+    /* SHARED */
+    .section{ padding: 42px 0 8px; }
+    .section-header{
       display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;              /* jarak antar badge */
-      align-items: center;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 18px;
     }
-
-    .badge-soft{
+    .eyebrow{
       display: inline-flex;
       align-items: center;
-      white-space: nowrap;     /* biar 1 badge gak pecah kata */
+      padding: .32rem .7rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+    .section-title{
+      font-size: clamp(1.75rem, 2vw, 2.25rem);
+      font-weight: 950;
+      letter-spacing: -.04em;
+      margin: 0;
+    }
+    .section-subtitle{
+      color: var(--muted);
+      margin: .35rem 0 0;
+      max-width: 640px;
+      line-height: 1.7;
+    }
+    .panel{
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 18px;
+    }
+    .cardx{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .cardx:hover{
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: rgba(11,94,215,.16);
+    }
+    .muted{ color: var(--muted); }
+    .badge-wrap{ display:flex; flex-wrap:wrap; gap:.55rem; }
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
       padding: .35rem .75rem;
       border-radius: 999px;
-    }
-
-    /* Footer spacing */
-    .footer-space { height: 24px; }
-
-    .video-frame{
-      width: 100%;
-      height: 260px;
-      border: 0;
-      border-radius: 12px;
-      background: #e5e7eb;
-    }
-
-    .video-card .item-img{
-      height: 180px;
-    }
-
-    .video-role{
-      display: inline-block;
-      margin-bottom: .6rem;
-      padding: .25rem .55rem;
-      border-radius: 999px;
-      background: rgba(11,94,215,.10);
+      background: var(--primary-soft);
       color: var(--primary);
-      font-size: .8rem;
-      font-weight: 700;
+      font-weight: 850;
+      font-size: .78rem;
+      white-space: nowrap;
     }
+    .btnx{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .78rem 1.05rem;
+      border-radius: 14px;
+      font-size: .95rem;
+      font-weight: 850;
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      transition: .16s ease;
+      cursor: pointer;
+    }
+    .btnx-primary{ background: var(--primary); color: #fff !important; }
+    .btnx-primary:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(11,94,215,.20); }
+    .btnx-soft{ background: #fff; color: var(--text) !important; border-color: var(--border); }
+    .btnx-soft:hover{ transform: translateY(-1px); border-color: rgba(11,94,215,.25); color: var(--primary) !important; }
 
-    .video-slider-wrap{
+    /* HERO */
+    .hero{ padding: 36px 0 20px; }
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.22fr .78fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+    .hero-main{
+      padding: clamp(1.4rem, 3vw, 2.5rem);
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.74));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
       position: relative;
-    }
-
-    .video-slider{
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      padding: .25rem .1rem .5rem;
-      scrollbar-width: none;
-    }
-
-    .video-slider::-webkit-scrollbar{
-      display: none;
-    }
-
-    .video-slide{
-      flex: 0 0 calc(50% - .5rem);
-      scroll-snap-align: start;
-    }
-
-    @media (max-width: 767.98px){
-      .video-slide{
-        flex: 0 0 100%;
-      }
-    }
-
-    .video-card{
-      height: 100%;
-      border-radius: 16px;
       overflow: hidden;
     }
+    .hero-main:after{
+      content:"";
+      position:absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      right: -120px;
+      top: -110px;
+      background: radial-gradient(circle, rgba(11,94,215,.16), transparent 70%);
+    }
+    .hero-kicker{ position:relative; z-index:1; }
+    .hero-title{
+      position:relative;
+      z-index:1;
+      font-size: clamp(2.4rem, 5.8vw, 5rem);
+      line-height: .95;
+      font-weight: 950;
+      letter-spacing: -.065em;
+      margin: 0 0 1rem;
+    }
+    .hero-title span{ color: var(--primary); }
+    .hero-lead{
+      position:relative;
+      z-index:1;
+      color: rgba(23,32,51,.82);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 720px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-actions{ position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom: 1.25rem; }
+    .hero-photo-card{
+      border-radius: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position:relative;
+      min-height: 420px;
+    }
+    .hero-photo-card img{
+      width:100%;
+      height:100%;
+      min-height: 420px;
+      object-fit: cover;
+      display:block;
+    }
+    .hero-photo-caption{
+      position:absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      background: rgba(255,255,255,.90);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: .9rem;
+      box-shadow: 0 12px 28px rgba(15,23,42,.12);
+    }
+    .hero-photo-caption strong{ display:block; font-size:1rem; }
+    .hero-photo-caption span{ color: var(--muted); font-size:.9rem; }
+    .stats-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:.7rem;
+      position:relative;
+      z-index:1;
+    }
+    .stat{
+      background: rgba(255,255,255,.72);
+      border:1px solid var(--border);
+      border-radius: 18px;
+      padding:.85rem;
+    }
+    .stat strong{ display:block; font-size:1.3rem; font-weight:950; color:var(--text); }
+    .stat span{ color:var(--muted); font-size:.85rem; }
 
-    .video-thumb{
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 1rem;
+    }
+    .about-copy{ padding: 1.35rem; }
+    .about-copy p{ color: rgba(23,32,51,.86); line-height:1.85; margin-bottom: 1rem; }
+    .quick-list{ padding:0; margin:0; list-style:none; }
+    .quick-list li{
+      display:flex;
+      gap:.75rem;
+      padding:.85rem 0;
+      border-bottom:1px solid var(--border);
+    }
+    .quick-list li:last-child{ border-bottom:0; }
+    .quick-list strong{ min-width:110px; }
+
+    /* FEATURED WORKS */
+    .featured-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:1rem;
+    }
+    .feature-card{ min-height: 340px; display:flex; flex-direction:column; }
+    .feature-cover{
+      width:100%; height:210px; object-fit:cover; background:#e5e7eb; display:block;
+    }
+    .feature-body{ padding:1.2rem; display:flex; flex-direction:column; flex:1; }
+    .feature-title{ font-size:1.25rem; font-weight:950; line-height:1.25; margin-bottom:.4rem; }
+    .feature-meta{ color:var(--muted); margin-bottom:.75rem; font-size:.92rem; }
+    .feature-desc{ color:rgba(23,32,51,.86); line-height:1.65; margin-bottom:1rem; }
+    .feature-actions{ margin-top:auto; }
+
+    /* EXPERIENCE TIMELINE */
+    .timeline{ position:relative; padding-left:1.1rem; }
+    .timeline:before{
+      content:""; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:rgba(11,94,215,.15);
+    }
+    .timeline-item{ position:relative; padding:0 0 1rem 1.35rem; }
+    .timeline-item:last-child{ padding-bottom:0; }
+    .timeline-item:before{
+      content:""; position:absolute; left:-.07rem; top:.55rem; width:14px; height:14px; border-radius:999px; background:var(--primary); box-shadow:0 0 0 5px rgba(11,94,215,.12);
+    }
+    .timeline-card{ padding:1.15rem; }
+    .timeline-title{ font-weight:950; font-size:1.05rem; margin-bottom:.25rem; }
+    .timeline-meta{ color:var(--muted); font-size:.92rem; margin-bottom:.8rem; }
+    .bullets{ padding-left:1.15rem; margin:.5rem 0 0; color:rgba(23,32,51,.86); }
+    .bullets li{ margin:.35rem 0; line-height:1.55; }
+
+    /* VIDEO & CREATIVE */
+    .slider-wrap{ position:relative; }
+    .h-slider{
+      display:flex;
+      gap:1rem;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      scroll-snap-type:x mandatory;
+      padding:.25rem .1rem .6rem;
+      scrollbar-width:none;
+    }
+    .h-slider::-webkit-scrollbar{ display:none; }
+    .slide{ flex:0 0 calc(50% - .5rem); scroll-snap-align:start; }
+    .media-card{ height:100%; display:flex; flex-direction:column; }
+    .media-thumb{
+      width:100%; height:220px; object-fit:cover; background:#e5e7eb; display:block;
+    }
+    .media-body{ padding:1.15rem; display:flex; flex-direction:column; min-height:250px; flex:1; }
+    .media-title{ font-size:1.14rem; font-weight:950; line-height:1.3; min-height:2.95rem; margin-bottom:.35rem; }
+    .media-meta{ color:var(--muted); font-size:.92rem; margin-bottom:.65rem; }
+    .media-desc{
+      color:rgba(23,32,51,.86);
+      font-size:.95rem;
+      line-height:1.65;
+      margin-bottom:1rem;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+    .media-actions{ margin-top:auto; display:flex; gap:.65rem; flex-wrap:wrap; }
+    .slider-nav{
+      position:absolute;
+      top:50%; transform:translateY(-50%);
+      z-index:5;
+      width:46px; height:46px;
+      border:0; border-radius:999px;
+      background:rgba(255,255,255,.96);
+      box-shadow:0 12px 28px rgba(15,23,42,.16);
+      color:var(--text); font-weight:950; cursor:pointer;
+    }
+    .slider-left{ left:-22px; }
+    .slider-right{ right:-22px; }
+    .filter-toolbar{ display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1rem; }
+    .filter-btn{
+      border:0; border-radius:999px; padding:.48rem .9rem;
+      background:var(--primary-soft); color:var(--primary); font-size:.86rem; font-weight:850; cursor:pointer;
+    }
+    .filter-btn.active, .filter-btn:hover{ background:var(--primary); color:#fff; }
+    .creative-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .creative-card{ display:flex; flex-direction:column; height:100%; }
+    .creative-cover-wrap{ position:relative; overflow:hidden; background:#e5e7eb; }
+    .creative-cover{ width:100%; height:240px; object-fit:cover; display:block; transition:transform .2s ease; }
+    .creative-cover-iframe{
+      width:100%;
+      height:240px;
+      border:0;
+      display:block;
+      background:#e5e7eb;
+      pointer-events:none;
+    }
+    .creative-card:hover .creative-cover{ transform:scale(1.03); }
+    .creative-type{
+      position:absolute; top:.85rem; left:.85rem;
+      background:rgba(255,255,255,.94); color:var(--primary);
+      border-radius:999px; padding:.32rem .65rem;
+      font-size:.78rem; font-weight:900;
+      box-shadow:0 8px 18px rgba(15,23,42,.10);
+    }
+    .creative-body{ padding:1.15rem; display:flex; flex-direction:column; flex:1; min-height:270px; }
+    .creative-tags{ display:flex; flex-wrap:wrap; gap:.45rem; margin:.25rem 0 1rem; }
+    .tag{ background:rgba(15,23,42,.06); color:rgba(23,32,51,.78); padding:.25rem .55rem; border-radius:999px; font-size:.76rem; font-weight:800; }
+
+    .creative-slider-card{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .creative-slider-cover{
       width: 100%;
-      height: 220px;
+      height: 240px;
       object-fit: cover;
       display: block;
       background: #e5e7eb;
     }
 
-    .video-body{
-      padding: 1.2rem;
+    .creative-slider-iframe{
+      width: 100%;
+      height: 240px;
+      border: 0;
+      display: block;
+      background: #e5e7eb;
+      pointer-events: none;
+    }
+
+    .creative-slider-body{
+      padding: 1.15rem;
       display: flex;
       flex-direction: column;
-      min-height: 240px;
+      min-height: 300px;
+      flex: 1;
     }
 
-    .video-title{
-      font-size: 1.2rem;
-      font-weight: 800;
-      line-height: 1.35;
-      margin-bottom: .4rem;
-      color: var(--text);
+    .creative-slider-body .media-title{
+      min-height: 2.95rem;
     }
 
-    .video-meta{
-      color: var(--muted);
-      font-size: .95rem;
-      margin-bottom: .75rem;
-    }
-
-    .video-role{
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      margin-bottom: .85rem;
-      padding: .32rem .68rem;
-      border-radius: 999px;
-      background: rgba(11,94,215,.10);
-      color: var(--primary);
-      font-size: .78rem;
-      font-weight: 700;
-    }
-
-    .video-desc{
-      color: rgba(31,41,55,.9);
-      font-size: .96rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      display: -webkit-box;
+    .creative-slider-body .media-desc{
       -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
-    .video-actions{
-      margin-top: auto;
-      display: flex;
-      gap: .75rem;
+    /* TECH PROJECTS */
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1rem;
+      align-items:stretch;
     }
 
-    .video-btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .65rem 1rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: .92rem;
-      text-decoration: none !important;
-      transition: .15s ease;
-      border: none;
-      cursor: pointer;
+    .project-card{
+      height:100%;
     }
 
-    .video-btn-primary{
-      background: var(--primary);
-      color: #fff;
+    /* keeps non-visual cards such as Relevant Academic Background and Skills aligned */
+    .project-card:not(.project-card-visual){
+      padding:1.2rem;
     }
 
-    .video-btn-primary:hover{
-      color: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(11,94,215,.18);
+    .project-card-visual{
+      padding:0;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
     }
 
-    .video-nav{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 3;
-      width: 46px;
-      height: 46px;
-      border: none;
-      border-radius: 999px;
-      background: rgba(255,255,255,.96);
-      box-shadow: 0 10px 24px rgba(17,24,39,.14);
-      color: var(--text);
-      font-size: 1.15rem;
-      font-weight: 700;
-      cursor: pointer;
+    .project-cover{
+      width:100%;
+      height:210px;
+      object-fit:cover;
+      background:#e5e7eb;
+      display:block;
     }
 
-    .video-nav-left{ left: -14px; }
-    .video-nav-right{ right: -14px; }
+    .project-content{
+      padding:1.2rem;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
 
+    .project-title{
+      font-size:1.15rem;
+      font-weight:950;
+      line-height:1.35;
+      margin-bottom:.35rem;
+    }
+
+    .project-meta{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-bottom:.8rem;
+    }
+
+    .project-desc{
+      color:rgba(23,32,51,.86);
+      line-height:1.65;
+      margin-bottom:1rem;
+    }
+
+    /* COMPACT LIST */
+    .compact-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1rem;
+      align-items:stretch;
+    }
+    .compact-card{
+      padding:1.1rem;
+      height:100%;
+      min-height:88px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .compact-title{ font-weight:950; margin-bottom:.25rem; line-height:1.35; }
+    .compact-meta{ color:var(--muted); font-size:.9rem; line-height:1.5; }
+
+    /* CERTIFICATIONS */
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1rem;
+      align-items:stretch;
+    }
+    .cert-card{
+      padding:1.15rem;
+      height:100%;
+      min-height:155px;
+      display:flex;
+      flex-direction:column;
+    }
+    .cert-title{ font-weight:950; line-height:1.35; margin-bottom:.3rem; }
+    .cert-card .project-meta{ margin-bottom:.7rem; }
+    .cert-card .project-desc{ margin-bottom:0; }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:1rem;
+      align-items:stretch;
+    }
+    .contact-card{
+      padding:1.15rem;
+      text-align:center;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:110px;
+    }
+    .contact-card strong{ display:block; margin-bottom:.35rem; }
+
+    /* MODAL */
+    .modalx{
+      display:none; position:fixed; inset:0; z-index:2100;
+      background:rgba(15,23,42,.72); padding:24px;
+    }
+    .modalx.show{ display:flex; align-items:center; justify-content:center; }
+    .modalx-content{
+      width:min(980px,100%); background:#fff; border-radius:22px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .modalx-header{ display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; border-bottom:1px solid var(--border); }
+    .modalx-title{ font-size:1.05rem; font-weight:950; margin:0; }
+    .modalx-close{ border:0; background:transparent; font-size:1.55rem; line-height:1; color:var(--muted); cursor:pointer; }
+    .modalx-body{ padding:1rem; background:#f8fafc; }
+    .modalx-frame{ width:100%; height:72vh; min-height:420px; border:0; border-radius:14px; background:#000; }
+    .modalx-image{ width:100%; max-height:72vh; object-fit:contain; border-radius:14px; background:#fff; }
+
+    /* RESPONSIVE */
+    @media (max-width: 991.98px){
+      body{ padding-top:76px; }
+      .hero-grid, .about-grid{ grid-template-columns:1fr; }
+      .hero-photo-card{ min-height:360px; }
+      .hero-photo-card img{ min-height:360px; }
+      .contact-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
     @media (max-width: 767.98px){
-      .video-nav{
-        display: none;
-      }
-    }
-
-    /* Modal */
-    .video-modal{
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.72);
-      padding: 24px;
-    }
-
-    .video-modal.show{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .video-modal-content{
-      position: relative;
-      width: min(960px, 100%);
-      background: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,.25);
-    }
-
-    .video-modal-header{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .video-modal-title{
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin: 0;
-      color: var(--text);
-    }
-
-    .video-modal-close{
-      border: none;
-      background: transparent;
-      font-size: 1.5rem;
-      line-height: 1;
-      cursor: pointer;
-      color: var(--muted);
-    }
-
-    .video-modal-body{
-      padding: 1rem;
-      background: #f8fafc;
-    }
-
-    .video-modal-frame{
-      width: 100%;
-      height: 70vh;
-      min-height: 420px;
-      border: 0;
-      border-radius: 12px;
-      background: #000;
-    }
-
-    @media (max-width: 767.98px){
-      .video-modal{
-        padding: 12px;
-      }
-
-      .video-modal-frame{
-        height: 55vh;
-        min-height: 280px;
-      }
+      .section-header{ align-items:flex-start; flex-direction:column; }
+      .featured-grid, .project-grid, .creative-grid, .compact-grid, .cert-grid{ grid-template-columns:1fr; }
+      .slide{ flex:0 0 100%; }
+      .slider-nav{ display:none; }
+      .stats-grid{ grid-template-columns:1fr; }
+      .contact-grid{ grid-template-columns:1fr; }
+      .modalx{ padding:12px; }
+      .modalx-frame, .modalx-image{ height:58vh; min-height:300px; }
     }
   </style>
 </head>
 
 <body data-spy="scroll" data-target="#mainNav" data-offset="100">
-
-  <!-- NAVBAR (ringkas + dropdown) -->
   <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container page">
-      <a class="navbar-brand" href="#about-me">Portfolio</a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
-              aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="#home">Daffa<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#about-me">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-
-          <!-- Experiences dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="expDrop" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">Experiences</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="expDrop">
-              <a class="dropdown-item" href="#pro-experiences">Professional</a>
-              <a class="dropdown-item" href="#org-experiences">Organizational</a>
-              <a class="dropdown-item" href="#lead-experiences">Leadership</a>
-              <a class="dropdown-item" href="#project-exp">Projects</a>
-              <a class="dropdown-item" href="#video-portfolio">Video Portfolio</a>
-            </div>
-          </li>
-
-          <!-- Credentials dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="credDrop" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">Credentials</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="credDrop">
-              <a class="dropdown-item" href="#certification-license">Certification</a>
-              <a class="dropdown-item" href="#skill">Skills</a>
-              <a class="dropdown-item" href="#event-certificate">Event Certificates</a>
-            </div>
-          </li>
-
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#featured">Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#creative-portfolio">Creative</a></li>
+          <li class="nav-item"><a class="nav-link" href="#technical-projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#credentials">Credentials</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -454,1034 +579,450 @@
   </nav>
 
   <main class="container page">
+    <!-- HERO -->
+    <section class="hero section" id="home">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="hero-kicker eyebrow">Tech + Creative Portfolio</div>
+          <h1 class="hero-title">Daffa' Khairon <span>Khan</span></h1>
+          <p class="hero-lead">
+            Fresh graduate in Informatics Engineering from Jenderal Soedirman University (March 2026), with hands-on experience across helpdesk, quality assurance, software testing, system development, content creation, and digital marketing.
+          </p>
+          <div class="hero-actions">
+            <a href="#featured" class="btnx btnx-primary">View Featured Works</a>
+            <a href="#creative-portfolio" class="btnx btnx-soft">Explore Creative Works</a>
+            <a href="#contact" class="btnx btnx-soft">Contact Me</a>
+          </div>
+          <div class="badge-wrap">
+            <span class="pill">Helpdesk & QA</span>
+            <span class="pill">Software Testing</span>
+            <span class="pill">System & Business Analysis</span>
+            <span class="pill">Content Creation</span>
+            <span class="pill">Digital Marketing</span>
+            <span class="pill">Technical Documentation</span>
+          </div>
+          <div class="stats-grid mt-4">
+            <div class="stat"><strong>5+</strong><span>Work & Internship Experiences</span></div>
+            <div class="stat"><strong>10+</strong><span>Projects & Creative Works</span></div>
+            <div class="stat"><strong>2026</strong><span>Fresh Graduate</span></div>
+          </div>
+        </div>
+
+        <div class="hero-photo-card">
+          <img src="img/daffa2.jpg" alt="Daffa profile photo" onerror="this.src='img/daffa.jpg'">
+          <div class="hero-photo-caption">
+            <strong>Open to opportunities</strong>
+            <span>QA · Business Analyst · System Analyst · IT Support · Technical Writer · Creative</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ABOUT -->
-    <section class="section" id="about-me">
+    <section class="section" id="about">
       <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">A quick snapshot about who I am.</p>
+        <div>
+          <span class="eyebrow">About</span>
+          <h2 class="section-title">A profile that connects systems, service, and storytelling.</h2>
+          <p class="section-subtitle">A quick snapshot of my technical and creative background.</p>
+        </div>
       </div>
 
-      <div class="panel">
-        <div class="item-card">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/daffa2.jpg" class="item-img" alt="Daffa profile photo">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="about-name">Daffa' Khairon Khan</div>
-                <p class="item-text">
-                  Daffa is a fresh graduate in Informatics Engineering from Jenderal Soedirman University (March 2026), with hands-on experience in Helpdesk, Software Testing, system development, content creation, and digital marketing.
-                  <br><br>
-                  Through internship and freelance experiences, he has worked on lecturer service support, QA-based service evaluation, mobile application testing, project and system development, as well as social media and event content production. His work combines technical understanding with communication, documentation, and problem-solving skills.
-                  <br><br>
-                  In addition to his academic background in informatics, Daffa is actively involved in projects, communities, and creative initiatives that strengthen his adaptability and cross-functional collaboration. He is particularly interested in roles related to Quality Assurance, System Analyst, Business Analyst, IT Support, Technical Documentation, and Digital Content.
-                </p>
-                <div class="mt-3 badge-wrap">
-                  <span class="badge-soft">Helpdesk & QA</span>
-                  <span class="badge-soft">Software Testing</span>
-                  <span class="badge-soft">System & Business Analysis</span>
-                  <span class="badge-soft">Technical Documentation</span>
-                  <span class="badge-soft">Content Creation</span>
-                  <span class="badge-soft">Digital Marketing</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="about-grid">
+        <div class="cardx about-copy">
+          <p>
+            Through internship and freelance experiences, Daffa has worked on lecturer service support, QA-based service evaluation, mobile application testing, project and system development, as well as social media and event content production.
+          </p>
+          <p>
+            His work combines technical understanding with communication, documentation, and problem-solving skills. In addition to his academic background in informatics, he is actively involved in projects, communities, and creative initiatives that strengthen his adaptability and cross-functional collaboration.
+          </p>
+          <p class="mb-0">
+            He is particularly interested in roles related to Quality Assurance, System Analyst, Business Analyst, IT Support, Technical Documentation, and Digital Content.
+          </p>
+        </div>
+        <div class="cardx about-copy">
+          <ul class="quick-list">
+            <li><strong>Education</strong><span>Informatics Engineering, Jenderal Soedirman University</span></li>
+            <li><strong>Graduated</strong><span>March 2026</span></li>
+            <li><strong>Location</strong><span>Indonesia</span></li>
+            <li><strong>Focus</strong><span>Systems, QA, documentation, and creative production</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="section" id="education">
+    <!-- FEATURED WORKS -->
+    <section class="section" id="featured">
       <div class="section-header">
-        <h2 class="section-title">Education</h2>
-        <p class="section-subtitle">Formal education background.</p>
+        <div>
+          <span class="eyebrow">Featured Works</span>
+          <h2 class="section-title">Selected works with the strongest story.</h2>
+          <p class="section-subtitle">A curated mix of system projects, financial data processing, campaign content, and documentation work.</p>
+        </div>
       </div>
-
-      <div class="panel">
-        <!-- Item 1 -->
-        <div class="item-card mb-3">
-          <div class="p-4">
-            <div class="item-title">Jenderal Soedirman University</div>
-            <div class="item-meta">Informatics (Aug 2021 - Mar 2026) • <strong>GPA 3.80/4.00</strong></div>
-            <p class="item-text">
-              Relevant courses: Algorithms & Programming, Data Structures, Databases, Software Engineering, Web Programming, HCI,
-              Software Testing, AI & Machine Learning, Information Security, Project Management, and more.
-            </p>
+      <div class="featured-grid">
+        <article class="cardx feature-card">
+          <img src="img/performedge.png" class="feature-cover" alt="PerformEdge" onerror="this.src='img/video-placeholder.jpg'">
+          <div class="feature-body">
+            <span class="pill mb-2">System Project</span>
+            <div class="feature-title">PerformEdge - Performance Assessment & KMS System</div>
+            <div class="feature-meta">Full-Stack Developer · 2024–2025</div>
+            <p class="feature-desc">A web-based performance assessment and knowledge management system featuring role-based scorecards, performance reporting, and centralized service knowledge.</p>
+            <div class="feature-actions"><a href="#technical-projects" class="btnx btnx-soft">View Project</a></div>
           </div>
-        </div>
+        </article>
 
-        <!-- Item 2 -->
-        <div class="item-card mb-3">
-          <div class="p-4">
-            <div class="item-title">Diponegoro University</div>
-            <div class="item-meta">Urban Planning (Aug 2020 - Jul 2021)</div>
-            <p class="item-text">Relevant courses: GIS, Urban Planning, Communication Techniques, IoT, etc.</p>
+        <article class="cardx feature-card">
+          <img src="img/tdg.jpg" class="feature-cover" alt="Canvassing TDG" onerror="this.src='img/video-placeholder.jpg'">
+          <div class="feature-body">
+            <span class="pill mb-2">Financial System</span>
+            <div class="feature-title">Canvassing TDG - Financial Data Processing System</div>
+            <div class="feature-meta">System Analyst · 2025</div>
+            <p class="feature-desc">A system designed to process and organize financial report data and worksheets derived from general ledger records prior to audit.</p>
+            <div class="feature-actions"><a href="#technical-projects" class="btnx btnx-soft">View Project</a></div>
           </div>
-        </div>
+        </article>
 
-        <!-- Item 3 -->
-        <div class="item-card mb-3">
-          <div class="p-4">
-            <div class="item-title">SMA Negeri 2 Cirebon</div>
-            <div class="item-meta">Natural Science (Jan 2018 - Jun 2020) • Grade 87.20/100</div>
+        <article class="cardx feature-card">
+          <img src="img/karatungga.jpg" class="feature-cover" alt="Kara Tungga" onerror="this.src='img/video-placeholder.jpg'">
+          <div class="feature-body">
+            <span class="pill mb-2">Campaign Content</span>
+            <div class="feature-title">Kara Tungga - Luxury Heritage Campaign Content</div>
+            <div class="feature-meta">Social Media & Content Creator · 2026</div>
+            <p class="feature-desc">Campaign content and storytelling for a premium fashion brand, including seasonal campaigns, video content, and social media communication.</p>
+            <div class="feature-actions"><a href="#video-portfolio" class="btnx btnx-soft">View Video Works</a></div>
           </div>
-        </div>
+        </article>
 
-        <!-- Item 4 -->
-        <div class="item-card">
-          <div class="p-4">
-            <div class="item-title">SMA Negeri 1 Sumber</div>
-            <div class="item-meta">Natural Science (Jul 2017 - Dec 2017)</div>
+        <article class="cardx feature-card">
+          <img src="img/seteka.jpg" class="feature-cover" alt="Seteka" onerror="this.src='img/video-placeholder.jpg'">
+          <div class="feature-body">
+            <span class="pill mb-2">Event Documentation</span>
+            <div class="feature-title">Seteka - Event Content Production</div>
+            <div class="feature-meta">Event Content Creator · 2026</div>
+            <p class="feature-desc">End-to-end event content documentation, from photo and video capture to short-form editing and final deliverables.</p>
+            <div class="feature-actions"><a href="#video-portfolio" class="btnx btnx-soft">View Video Works</a></div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- PROFESSIONAL -->
-    <section class="section" id="pro-experiences">
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
       <div class="section-header">
-        <h2 class="section-title">Professional Experiences</h2>
-        <p class="section-subtitle">Work and internship experience.</p>
+        <div>
+          <span class="eyebrow">Experience</span>
+          <h2 class="section-title">Professional timeline.</h2>
+          <p class="section-subtitle">Work, internship, freelance, and content production experiences.</p>
+        </div>
       </div>
 
       <div class="panel">
-
-        <!-- SETEKA -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/seteka.jpg" class="item-img" alt="SETEKA">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="cardx timeline-card">
+              <div class="timeline-title">Seteka</div>
+              <div class="timeline-meta">Freelance - Event Content Creator · Mar 2026 - Present</div>
+              <ul class="bullets">
+                <li>Captured photo and video documentation for events and on-site activities.</li>
+                <li>Edited event footage into short-form visual content for digital publication.</li>
+                <li>Prepared and delivered final content assets based on event documentation needs.</li>
+              </ul>
             </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">
-                  Seteka
-                </div>
-                <div class="item-meta">Freelance - Event Content Creator (Mar 2026 - Present)</div>
-                <ul class="bullets">
-                  <li>Captured photo and video documentation for events and on-site activities.</li>
-                  <li>Edited event footage into short-form visual content for digital publication.</li>
-                  <li>Prepared and delivered final content assets based on event documentation needs.</li>
-                </ul>
-              </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="cardx timeline-card">
+              <div class="timeline-title">Kara Tungga</div>
+              <div class="timeline-meta">Freelance (Remote) - Social Media & Content Creator · Jan 2026 - Present</div>
+              <ul class="bullets">
+                <li>Developed and executed multi-platform social media strategies to increase brand presence.</li>
+                <li>Created visual content, captions, and storytelling aligned with luxury brand positioning.</li>
+                <li>Produced seasonal campaign content while maintaining brand consistency.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="cardx timeline-card">
+              <div class="timeline-title">Ministry of Education, Culture, Research, and Technology of Indonesia - DIKTI</div>
+              <div class="timeline-meta">Internship (MSIB Program) - Helpdesk · Sep 2024 - Jan 2025</div>
+              <ul class="bullets">
+                <li>Handled and verified lecturer service tickets through the Zendesk platform.</li>
+                <li>Conducted service quality assessments using QA scorecards.</li>
+                <li>Prepared weekly and periodic service performance reports.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="cardx timeline-card">
+              <div class="timeline-title">Ministry of Communication and Information Technology of Indonesia - APTIKA</div>
+              <div class="timeline-meta">Internship - Software Tester · Jul 2023 - Aug 2023</div>
+              <ul class="bullets">
+                <li>Tested mobile apps on Android and iOS to ensure functionality and compatibility.</li>
+                <li>Documented bugs clearly to support faster fixes with the development team.</li>
+                <li>Communicated quality findings and improvement recommendations.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="cardx timeline-card">
+              <div class="timeline-title">MIHR Indonesia</div>
+              <div class="timeline-meta">Digital Marketing · Dec 2022 - Apr 2023</div>
+              <ul class="bullets">
+                <li>Planned and executed digital strategies to increase brand awareness.</li>
+                <li>Managed social media presence and engagement activities.</li>
+                <li>Collaborated with designers, videographers, photographers, and partners.</li>
+              </ul>
             </div>
           </div>
         </div>
-        
-        <!-- KARATUNGGA -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/karatungga.jpg" class="item-img" alt="KARATUNGGA">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">
-                  Kara Tungga
-                </div>
-                <div class="item-meta">Freelance (Remote) - Social Media & Content Creator (Jan 2026 - Present)</div>
-                <ul class="bullets">
-                  <li>Developed and executed multi-platform social media strategies to increase brand presence.</li>
-                  <li>reated visual content, captions, and storytelling aligned with luxury brand positioning.</li>
-                  <li>Produced seasonal campaign content (e.g., CNY & Eid Hampers) while maintaining brand consistency.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DIKTI -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/dikti.jpg" class="item-img" alt="DIKTI">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">
-                  Ministry of Education, Culture, Research, and Technology of Indonesia - Directorate General of Higher Education, Research, and Technology (DIKTI)
-                </div>
-                <div class="item-meta">Internship (MSIB Program) - Helpdesk (Sep 2024 - Jan 2025)</div>
-                <ul class="bullets">
-                  <li>Handled and verified lecturer service tickets through the Zendesk platform.</li>
-                  <li>Conducted service quality assessments using QA scorecards.</li>
-                  <li>Prepared weekly and periodic service performance reports.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Kominfo -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/kominfo.png" class="item-img" alt="Kominfo">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">
-                  Ministry of Communication and Information Technology of Indonesia - Directorate General of Informatics Applications (APTIKA)
-                </div>
-                <div class="item-meta">Internship - Software Tester (Jul 2023 - Aug 2023)</div>
-                <ul class="bullets">
-                  <li>Tested mobile apps on Android & iOS to ensure functionality and compatibility.</li>
-                  <li>Documented bugs clearly to speed up fixes with the dev team.</li>
-                  <li>Communicated quality findings and improvement recommendations.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- MIHR -->
-        <div class="item-card">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/digmar.png" class="item-img" alt="MIHR Indonesia">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">MIHR Indonesia</div>
-                <div class="item-meta">Digital Marketing (Dec 2022 - Apr 2023)</div>
-                <ul class="bullets">
-                  <li>Planned and executed digital strategies to increase brand awareness.</li>
-                  <li>Managed social media presence and engagement activities.</li>
-                  <li>Collaborated with designers, videographers, photographers, and partners.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ORGANIZATIONAL -->
-    <section class="section" id="org-experiences">
-      <div class="section-header">
-        <h2 class="section-title">Organizational Experiences</h2>
-        <p class="section-subtitle">Community and organization involvement.</p>
-      </div>
-
-      <div class="panel">
-
-        <!-- <div class="item-card mt-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/ph.jpg" class="item-img" alt="Social Community">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Purwokerto Healing - Social & Lifestyle Community</div>
-                <div class="item-meta">Content Creator & Documentation (Feb 2026 - Present)</div>
-                <ul class="bullets">
-                  <li>Documented community activities through photo and video coverage.</li>
-                  <li>Produced and edited short-form video content for social media publication.</li>
-                  <li>Collaborated with the team to plan and publish content on the community’s official account.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <div class="item-card mt-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/snus.jpg" class="item-img" alt="Sesuap Nasi Untuk Sesama">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Sesuap Nasi Untuk Sesama - Humanitarian Social Initiative</div>
-                <div class="item-meta">Volunteer (Feb 2026)</div>
-                <ul class="bullets">
-                  <li>Supported fundraising and logistics preparation for humanitarian aid distribution.</li>
-                  <li>Prepared and distributed meals to people in need as part of a community outreach program.</li>
-                  <li>Documented event activities through photo and video coverage.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="item-card mt-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/swc.jpg" class="item-img" alt="Sumatera We Care">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Sumatera We Care - Humanitarian Fundraising Event at Purwokerto</div>
-                <div class="item-meta">Fundraising Volunteer (Dec 2025)</div>
-                <ul class="bullets">
-                  <li>Collected and managed donations for disaster relief efforts in Sumatera.</li>
-                  <li>Engaged with donors during art performances and film screenings.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mt-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/semeja.jpg" class="item-img" alt="Work Community">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Semeja Kerja - Work Community at Purwokerto</div>
-                <div class="item-meta"> Content Creator & Documentation (Sep 2025 - Present)</div>
-                <ul class="bullets">
-                  <li>Documented community activities through photo and video coverage.</li>
-                  <li>Produced and edited short-form video content for social media publication.</li>
-                  <li>Collaborated with the team to plan and publish content on the community’s official account.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="item-card mt-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/org1.jpg" class="item-img" alt="Organization">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Himpunan Mahasiswa Perintis D-3 Perencanaan Wilayah dan Kota (HMPSDPWK) - Diponegoro University</div>
-                <div class="item-meta">Staff of Creative Media (Feb 2021 - Jun 2021)</div>
-                <ul class="bullets">
-                  <li>Managed social media for HMPSDPWK.</li>
-                  <li>Developed Plano Fest and Podcast Tukang Rencana.</li>
-                  <li>Supported branding for the program and organization.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LEADERSHIP -->
-    <section class="section" id="lead-experiences">
-      <div class="section-header">
-        <h2 class="section-title">Leadership Experiences</h2>
-        <p class="section-subtitle">Events, coordination, and committee roles.</p>
-      </div>
-
-      <div class="panel">
-        <!-- Repeatable card pattern -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lead1.jpg" class="item-img" alt="Leadership 1"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Kuliah Umum Penerapan Data Science & AI</div>
-                <div class="item-meta">Event Coordinator (May 2022)</div>
-                <ul class="bullets">
-                  <li>Prepared and supervised the event execution.</li>
-                  <li>Served as contact person for committees and students.</li>
-                  <li>Handled rooms, documentation, and equipment needs.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lead2.jpg" class="item-img" alt="Leadership 2"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Pemilihan Raya Calon Ketua Himpunan HMIF</div>
-                <div class="item-meta">Staff of Public Relations (Jan 2022)</div>
-                <ul class="bullets">
-                  <li>Primary contact person for Informatics students.</li>
-                  <li>Created invitations, captions, and announcements.</li>
-                  <li>Supported logistics and documentation needs.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lead3.jpg" class="item-img" alt="Leadership 3"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">University Day - SMA N 2 Cirebon</div>
-                <div class="item-meta">Staff of Facilitator (Oct 2021 - Jan 2022)</div>
-                <ul class="bullets">
-                  <li>Facilitated interactions between mentors and students during event sessions.</li>
-                  <li>Acted as a communication bridge between organizers, mentors, and participants.</li>
-                  <li>Ensured smooth coordination and engagement throughout the program activities.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lead4.jpg" class="item-img" alt="Leadership 4"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Musyawarah Anggota UKM SENIOR</div>
-                <div class="item-meta">Staff of Accommodation & Equipment (Nov 2021 - Dec 2021)</div>
-                <ul class="bullets">
-                  <li>Prepared and managed event logistics, including venue setup and equipment readiness.</li>
-                  <li>Ensured all technical and operational requirements were fulfilled before and during the event.</li>
-                  <li>Supported documentation and smooth execution of meeting sessions.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/mc2.jpg" class="item-img" alt="MC 1"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Webinar: Berpikir Digital ala Gen Z</div>
-                <div class="item-meta">Master of Ceremony (Oct 2021)</div>
-                <ul class="bullets">
-                  <li>Led the webinar session as Master of Ceremony, ensuring smooth flow and audience engagement.</li>
-                  <li>Coordinated with speakers and organizing team to manage session timeline effectively.</li>
-                  <li>Facilitated interactive discussions aligned with Gen Z digital behavior and trends.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/vol.png" class="item-img" alt="Volunteer"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Webinar: Tantangan Dunia Pendidikan di Masa Pandemi</div>
-                <div class="item-meta">Campaign Volunteer (Aug 2021)</div>
-                <ul class="bullets">
-                  <li>Supported campaign execution and audience outreach for an online educational webinar.</li>
-                  <li>Assisted in coordinating event logistics and ensuring smooth virtual session delivery.</li>
-                  <li>Engaged with participants and helped increase awareness of education challenges during COVID-19.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lead5.jpg" class="item-img" alt="Leadership 5"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Scholar Show & Study Banding HMPSDPWK</div>
-                <div class="item-meta">Staff of Equipment (Apr 2021 - May 2021)</div>
-                <ul class="bullets">
-                  <li>Prepared and managed event equipment to ensure operational readiness.</li>
-                  <li>Coordinated technical needs for presentations and activities during the event.</li>
-                  <li>Supported overall event execution by ensuring all logistical requirements were fulfilled.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/mc1.jpg" class="item-img" alt="MC 2"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Kuliah Umum Kewirausahaan</div>
-                <div class="item-meta">Master of Ceremony (Mar 2021)</div>
-                <ul class="bullets">
-                  <li>Hosted and guided the seminar session, maintaining audience engagement throughout the event.</li>
-                  <li>Managed speaker transitions and ensured adherence to the event schedule.</li>
-                  <li>Created a professional and interactive atmosphere for participants and speakers.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lead6.jpg" class="item-img" alt="Leadership 6"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Makrab Angkatan 2019–2020 D-3 PWK</div>
-                <div class="item-meta">Vice Project Officer (Jan 2021)</div>
-                <ul class="bullets">
-                  <li>Led and supervised committee members to ensure smooth event execution.</li>
-                  <li>Assisted Project Officer in decision-making and problem-solving during event preparation and implementation.</li>
-                  <li>Coordinated cross-divisional teams to align timelines, responsibilities, and event objectives.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="project-exp">
-      <div class="section-header">
-        <h2 class="section-title">Project Experiences</h2>
-        <p class="section-subtitle">Selected projects and roles.</p>
-      </div>
-
-      <div class="panel">
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/tdg.jpg" class="item-img" alt="Financial Data Processing System">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Canvassing TDG - Financial Data Processing System</div>
-                <div class="item-meta">System Analyst (2025)</div>
-                <p class="item-text">
-                  A system designed to process and organize financial report data and worksheets derived from general ledger records prior to audit. The system supports structured data management, improves data accuracy, and facilitates efficient financial data validation for auditing preparation.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/performedge.png" class="item-img" alt="PerformEdge">
-            </div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">PerformEdge - Performance Assessment & KMS System</div>
-                <div class="item-meta">System Analyst & Full-Stack Developer (2024–2025)</div>
-                <p class="item-text">
-                  A web-based performance assessment and knowledge management system for ULT Kemendikdasmen, featuring role-based scorecards, performance reporting, and centralized service knowledge.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/bangkode.png" class="item-img" alt="BangKode"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">BangKode - Learning Platform</div>
-                <div class="item-meta">Project Manager (2023)</div>
-                <p class="item-text">
-                  A learning platform that recommends programming language and framework tutorial videos for general audiences.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/mihr.png" class="item-img" alt="MIHR Web"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">MIHR Indonesia - Company Profile</div>
-                <div class="item-meta">Project Manager (2023)</div>
-                <p class="item-text">A website to showcase services, mission, and company values.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/tanyain.png" class="item-img" alt="Tanyain"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Tanyain - Q&A Web App</div>
-                <div class="item-meta">Project Manager (2023)</div>
-                <p class="item-text">
-                  A platform for asking questions, answering, and discussion across various topics.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- FIXED: tag penutup yang tadinya kurang -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/sisgm.png" class="item-img" alt="Showroom System"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Showroom Information System</div>
-                <div class="item-meta">System Analyst (2023)</div>
-                <p class="item-text">
-                  A digital platform for managing vehicle inventory, customer data, and sales transactions in a showroom.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/boemi.png" class="item-img" alt="BoemiDahayu"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">BoemiDahayu - Company Profile</div>
-                <div class="item-meta">Project Manager (2023)</div>
-                <p class="item-text">A company profile website describing ethos, offerings, and product marketing.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/blater.jpg" class="item-img" alt="Blater Ngiler"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Blater Ngiler - E-Commerce Web App</div>
-                <div class="item-meta">Project Manager (2022)</div>
-                <p class="item-text">An e-commerce platform for browsing and purchasing daily products easily.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/panor.jpg" class="item-img" alt="Panorama Kost"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Panorama Kost - Company Profile</div>
-                <div class="item-meta">Project Manager (2022)</div>
-                <p class="item-text">A profile website showcasing affordable lodging services and facility info.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- VIDEO PORTFOLIO -->
     <section class="section" id="video-portfolio">
       <div class="section-header">
-        <h2 class="section-title">Video Portfolio</h2>
-        <p class="section-subtitle">Selected video works, event documentation, and creative deliverables.</p>
+        <div>
+          <span class="eyebrow">Video Portfolio</span>
+          <h2 class="section-title">Motion works and event documentation.</h2>
+          <p class="section-subtitle">Selected video works from brand campaigns, community events, and personal creative exploration.</p>
+        </div>
       </div>
-
       <div class="panel">
-        <div class="video-slider-wrap">
-          <button class="video-nav video-nav-left" onclick="scrollVideoPortfolio(-1)" aria-label="Scroll left">&#10094;</button>
-          <div class="video-slider" id="video-slider"></div>
-          <button class="video-nav video-nav-right" onclick="scrollVideoPortfolio(1)" aria-label="Scroll right">&#10095;</button>
+        <div class="slider-wrap">
+          <button class="slider-nav slider-left" onclick="scrollMedia('video-slider', -1)" aria-label="Scroll left">&#10094;</button>
+          <div class="h-slider" id="video-slider"></div>
+          <button class="slider-nav slider-right" onclick="scrollMedia('video-slider', 1)" aria-label="Scroll right">&#10095;</button>
         </div>
       </div>
     </section>
 
-    <!-- CERTIFICATION -->
-    <section class="section" id="certification-license">
+    <!-- CREATIVE PORTFOLIO -->
+    <section class="section" id="creative-portfolio">
       <div class="section-header">
-        <h2 class="section-title">Certification & License</h2>
-        <p class="section-subtitle">Courses, bootcamps, and certifications.</p>
+        <div>
+          <span class="eyebrow">Creative Portfolio</span>
+          <h2 class="section-title">Decks, carousel designs, and campaign visuals.</h2>
+          <p class="section-subtitle">A visual portfolio for presentation, social media design, and campaign direction.</p>
+        </div>
       </div>
 
       <div class="panel">
-        <!-- item -->
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/dsp2.jpg" class="item-img" alt="Sinau Jogja"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Belajar Data Science End-to-End dan Integrasi ke Web - Sinau Jogja</div>
-                <div class="item-meta">2025</div>
-                <p class="item-text">
-                  End-to-end data science training covering EDA, ML modeling with Python, and deployment with web integration.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="filter-toolbar">
+          <button class="filter-btn active" onclick="filterCreativeWorks('all', this)">All</button>
+          <button class="filter-btn" onclick="filterCreativeWorks('presentation', this)">Presentation Decks</button>
+          <button class="filter-btn" onclick="filterCreativeWorks('carousel', this)">Carousel Designs</button>
+          <button class="filter-btn" onclick="filterCreativeWorks('campaign', this)">Campaign Visuals</button>
         </div>
 
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/dsp.jpg" class="item-img" alt="Sinau Jogja"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Data Science with Python - Sinau Jogja</div>
-                <div class="item-meta">2024</div>
-                <p class="item-text">
-                  Intensive training covering data analysis, visualization, and ML using Python (Pandas, NumPy, Scikit-learn).
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/opencv1.jpg" class="item-img" alt="TF Keras"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">TensorFlow Keras Bootcamp - OpenCV University</div>
-                <div class="item-meta">2024</div>
-                <p class="item-text">
-                  Neural networks fundamentals to advanced deep learning model development with TensorFlow & Keras.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/opencv2.jpg" class="item-img" alt="OpenCV Bootcamp"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">OpenCV Bootcamp - OpenCV University</div>
-                <div class="item-meta">2024</div>
-                <p class="item-text">
-                  Image & video processing techniques using OpenCV from basic to advanced topics.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lic1.png" class="item-img" alt="Flutter"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Flutter Mobile App Development - Sanbercode</div>
-                <div class="item-meta">2023</div>
-                <p class="item-text">
-                  Hands-on bootcamp building cross-platform mobile apps with Flutter.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lic2.png" class="item-img" alt="React"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">React Introduction - Sanbercode</div>
-                <div class="item-meta">2023</div>
-                <p class="item-text">
-                  Fundamentals of React including component architecture, state, and responsive UI patterns.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="item-card">
-          <div class="row no-gutters">
-            <div class="col-md-4"><img src="img/lic3.png" class="item-img" alt="Laravel"></div>
-            <div class="col-md-8">
-              <div class="p-4">
-                <div class="item-title">Laravel Web Development - Sanbercode</div>
-                <div class="item-meta">2023</div>
-                <p class="item-text">
-                  Routing, authentication, database, MVC architecture, and building scalable Laravel apps.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skill">
-      <div class="section-header">
-        <h2 class="section-title">Skills & Languages</h2>
-        <p class="section-subtitle">Tools, technical strengths, and languages.</p>
-      </div>
-
-      <div class="panel">
-        <div class="item-card mb-3">
-          <div class="p-4">
-            <div class="item-title">Technical</div>
-            <p class="item-text">
-              Microsoft Office, C/C++, Java, HTML/CSS, Bootstrap, PHP, JavaScript, MySQL, WordPress, Laravel, Flutter, Swift,
-              VS Code, NetBeans, Android Studio, GitHub/GitLab, Accurate Online.
-            </p>
-          </div>
-        </div>
-
-        <div class="item-card mb-3">
-          <div class="p-4">
-            <div class="item-title">Interpersonal / Focus Areas</div>
-            <p class="item-text">
-              Software Development, DSA, Database Management, Web & Mobile Development, Software Testing & QA, HCI,
-              Technical Writing, Project Management, Data Analysis & Visualization.
-            </p>
-          </div>
-        </div>
-
-        <div class="item-card">
-          <div class="p-4">
-            <div class="item-title">Language</div>
-            <p class="item-text">Bahasa Indonesia (Native), English (Intermediate).</p>
-          </div>
+        <div class="slider-wrap">
+          <button class="slider-nav slider-left" onclick="scrollMedia('creative-slider', -1)" aria-label="Scroll left">&#10094;</button>
+          <div class="h-slider" id="creative-slider"></div>
+          <button class="slider-nav slider-right" onclick="scrollMedia('creative-slider', 1)" aria-label="Scroll right">&#10095;</button>
         </div>
       </div>
     </section>
 
-    <!-- EVENT CERT -->
-    <section class="section" id="event-certificate">
+    <!-- TECHNICAL PROJECTS -->
+    <section class="section" id="technical-projects">
       <div class="section-header">
-        <h2 class="section-title">Event Certificates</h2>
-        <p class="section-subtitle">Webinars and programs attended.</p>
+        <div>
+          <span class="eyebrow">Technical Projects</span>
+          <h2 class="section-title">System and web development projects.</h2>
+          <p class="section-subtitle">Selected technical projects from system analysis, web applications, and platform development.</p>
+        </div>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <!-- LEADERSHIP & COMMUNITY -->
+    <section class="section" id="community">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Leadership & Community</span>
+          <h2 class="section-title">Community involvement and event roles.</h2>
+          <p class="section-subtitle">Selected leadership, volunteer, and organizational activities.</p>
+        </div>
+      </div>
+      <div class="compact-grid">
+        <div class="cardx compact-card">
+          <div class="compact-title">Purwokerto Healing - Social & Lifestyle Community</div>
+          <div class="compact-meta">Creative Media · Apr 2026 - Present</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Semeja Kerja - Work Community at Purwokerto</div>
+          <div class="compact-meta">Content Creator & Documentation · Sep 2025 - Present</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Sesuap Nasi Untuk Sesama - Humanitarian Social Initiative</div>
+          <div class="compact-meta">Volunteer · Feb 2026</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Sumatera We Care - Humanitarian Fundraising Event</div>
+          <div class="compact-meta">Fundraising Volunteer · Dec 2025</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Kuliah Umum Penerapan Data Science & AI</div>
+          <div class="compact-meta">Event Coordinator · May 2022</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Pemilihan Raya Calon Ketua Himpunan HMIF</div>
+          <div class="compact-meta">Staff of Public Relations · Jan 2022</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">University Day - SMA N 2 Cirebon</div>
+          <div class="compact-meta">Staff of Facilitator · Oct 2021 - Jan 2022</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Musyawarah Anggota UKM SENIOR</div>
+          <div class="compact-meta">Staff of Accommodation & Equipment · Nov 2021 - Dec 2021</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Webinar: Berpikir Digital ala Gen Z</div>
+          <div class="compact-meta">Master of Ceremony · Oct 2021</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Webinar: Tantangan Dunia Pendidikan di Masa Pandemi</div>
+          <div class="compact-meta">Campaign Volunteer · Aug 2021</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Scholar Show & Study Banding HMPSDPWK</div>
+          <div class="compact-meta">Staff of Equipment · Apr 2021 - May 2021</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Kuliah Umum Kewirausahaan</div>
+          <div class="compact-meta">Master of Ceremony · Mar 2021</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">Makrab Angkatan 2019–2020 D-3 PWK</div>
+          <div class="compact-meta">Vice Project Officer · Jan 2021</div>
+        </div>
+
+        <div class="cardx compact-card">
+          <div class="compact-title">HMPS D-3 PWK - Diponegoro University</div>
+          <div class="compact-meta">Staff of Creative Media · Feb 2021 - Jun 2021</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="section" id="credentials">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Credentials</span>
+          <h2 class="section-title">Education, certifications, and skills.</h2>
+          <p class="section-subtitle">Formal education, technical learning, and focus areas.</p>
+        </div>
+      </div>
+
+      <div class="panel mb-3">
+        <div class="mb-3">
+          <span class="eyebrow">Education</span>
+        </div>
+
+        <div class="compact-grid mb-3">
+          <div class="cardx compact-card">
+            <div class="compact-title">Jenderal Soedirman University</div>
+            <div class="compact-meta">Informatics Engineering · Aug 2021 - Mar 2026 · GPA 3.80/4.00</div>
+          </div>
+
+          <div class="cardx compact-card">
+            <div class="compact-title">Diponegoro University</div>
+            <div class="compact-meta">Urban Planning · Aug 2020 - Jul 2021</div>
+          </div>
+
+          <div class="cardx compact-card">
+            <div class="compact-title">SMA Negeri 2 Cirebon</div>
+            <div class="compact-meta">Natural Science · Jan 2018 - Jun 2020 · Grade 87.20/100</div>
+          </div>
+
+          <div class="cardx compact-card">
+            <div class="compact-title">SMA Negeri 1 Sumber</div>
+            <div class="compact-meta">Natural Science · Jul 2017 - Dec 2017</div>
+          </div>
+        </div>
+
+        <div class="cardx project-card mb-3">
+          <div class="project-title">Relevant Academic Background</div>
+          <p class="project-desc mb-0">Algorithms & Programming, Data Structures, Databases, Software Engineering, Web Programming, Human-Computer Interaction, Software Testing, Artificial Intelligence, Machine Learning, Information Security, Project Management, GIS, Urban Planning, Communication Techniques, and IoT.</p>
+        </div>
+
+        <div class="mb-3 mt-4">
+          <span class="eyebrow">Certifications & Bootcamps</span>
+        </div>
+        <div class="cert-grid" id="cert-grid"></div>
+
+        <div class="mb-3 mt-4">
+          <span class="eyebrow">Event Certificates</span>
+        </div>
+        <div class="cert-grid" id="event-cert-grid"></div>
       </div>
 
       <div class="panel">
-
-      <div class="item-card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/okeki.png" class="item-img" alt="Webinar Edukasi Kekayaan Intelektual 2025 Certificate">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Webinar Edukasi Kekayaan Intelektual: Potensi Desain Industri & Strategi Pendaftarannya
-              </div>
-              <div class="item-meta">
-                Directorate General of Intellectual Property (DJKI) - 2025
-              </div>
-              <p class="item-text">
-                Webinar on industrial design potential and registration strategies.
-              </p>
-            </div>
+        <div class="cardx project-card">
+          <div class="project-title">Skills & Focus Areas</div>
+          <p class="project-desc">Microsoft Office, C/C++, Java, HTML/CSS, Bootstrap, PHP, JavaScript, MySQL, WordPress, Laravel, Flutter, Swift, VS Code, Android Studio, GitHub/GitLab, Accurate Online, software testing, QA, system analysis, technical writing, project management, data analysis, visualization, and content production.</p>
+          <div class="badge-wrap">
+            <span class="pill">Bahasa Indonesia - Native</span>
+            <span class="pill">English - Intermediate</span>
           </div>
         </div>
       </div>
-
-      <div class="item-card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/ser1.png" class="item-img" alt="Smart City Webinar">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Implementasi & Strategi Mewujudkan Smart City di Indonesia
-              </div>
-              <div class="item-meta">
-                Universitas Diponegoro - 2021
-              </div>
-              <p class="item-text">
-                Discusses challenges, innovation, and planning for smart city implementation in Indonesia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item-card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/ser2.png" class="item-img" alt="Smart Management Webinar">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Empowering Smart Management: Smart City & Smart Business
-              </div>
-              <div class="item-meta">
-                Universitas Diponegoro - 2021
-              </div>
-              <p class="item-text">
-                Explores how smart city infrastructure and data can enhance business operations and sustainability.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item-card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/ser6.png" class="item-img" alt="Character Education UNDIP">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Pendidikan Karakter Mahasiswa Baru UNDIP
-              </div>
-              <div class="item-meta">
-                Universitas Diponegoro - 2020
-              </div>
-              <p class="item-text">
-                Character building program focusing on ethics, leadership, and student development.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item-card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/ser3.png" class="item-img" alt="Economic Festival UI">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Economic Festival UI: Driving Business with Social Media
-              </div>
-              <div class="item-meta">
-                Universitas Indonesia - 2020
-              </div>
-              <p class="item-text">
-                Strategies and insights on leveraging social media for business growth.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item-card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/ser4.png" class="item-img" alt="Creative Digital Entrepreneur">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Economic Festival UI: New Ecosystem for Creative Digital Entrepreneur
-              </div>
-              <div class="item-meta">
-                Universitas Indonesia - 2020
-              </div>
-              <p class="item-text">
-                Explores trends and opportunities in creative digital entrepreneurship ecosystems.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="item-card">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="img/ser5.png" class="item-img" alt="PWK Future Career Webinar">
-          </div>
-          <div class="col-md-8">
-            <div class="p-4">
-              <div class="item-title">
-                Menatap Masa Depan Bersama D3 PWK PSDKU UNDIP
-              </div>
-              <div class="item-meta">
-                Universitas Diponegoro - 2021
-              </div>
-              <p class="item-text">
-                Discusses career paths, challenges, and preparation for PWK students.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
     </section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="section-header">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Let’s connect.</p>
-      </div>
-
-      <div class="panel">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <div class="item-card h-100">
-              <div class="p-4">
-                <div class="item-title">LinkedIn</div>
-                <p class="item-text">
-                  <a href="https://www.linkedin.com/in/daffakhaironkhan/" target="_blank" rel="noopener">Daffa Khairon Khan</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <div class="item-card h-100">
-              <div class="p-4">
-                <div class="item-title">Email</div>
-                <p class="item-text">
-                  <a href="mailto:daffakk1978@gmail.com">daffakk1978@gmail.com</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <div class="item-card h-100">
-              <div class="p-4">
-                <div class="item-title">Phone</div>
-                <p class="item-text">
-                  <a href="https://wa.me/6287730944682" target="_blank" rel="noopener">(+62) 877 3094 4682</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <div class="item-card h-100">
-              <div class="p-4">
-                <div class="item-title">Instagram</div>
-                <p class="item-text">
-                  <a href="https://www.instagram.com/daffakk__/" target="_blank" rel="noopener">@daffakk__</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h2 class="section-title">Let’s connect and collaborate.</h2>
+          <p class="section-subtitle">Open for professional opportunities, creative collaboration, and knowledge sharing.</p>
         </div>
+      </div>
+      <div class="contact-grid">
+        <div class="cardx contact-card"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/daffakhaironkhan/" target="_blank" rel="noopener">Daffa Khairon Khan</a></div>
+        <div class="cardx contact-card"><strong>Email</strong><a href="mailto:daffakk1978@gmail.com">daffakk1978@gmail.com</a></div>
+        <div class="cardx contact-card"><strong>WhatsApp</strong><a href="https://wa.me/6287730944682" target="_blank" rel="noopener">(+62) 877 3094 4682</a></div>
+        <div class="cardx contact-card"><strong>Instagram</strong><a href="https://www.instagram.com/daffakk__/" target="_blank" rel="noopener">@daffakk__</a></div>
       </div>
     </section>
 
     <div class="footer-space"></div>
   </main>
-  <!-- MODAL -->
-  <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
-    <div class="video-modal-content" onclick="event.stopPropagation()">
-      <div class="video-modal-header">
-        <h3 class="video-modal-title" id="videoModalTitle">Video Preview</h3>
-        <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close">&times;</button>
+
+  <!-- MEDIA MODAL -->
+  <div class="modalx" id="mediaModal" onclick="closeMediaModal(event)">
+    <div class="modalx-content" onclick="event.stopPropagation()">
+      <div class="modalx-header">
+        <h3 class="modalx-title" id="mediaModalTitle">Preview</h3>
+        <button class="modalx-close" onclick="closeMediaModal()" aria-label="Close">&times;</button>
       </div>
-      <div class="video-modal-body">
-        <iframe id="videoModalFrame" class="video-modal-frame" src="" allow="autoplay"></iframe>
-      </div>
+      <div class="modalx-body" id="mediaModalBody"></div>
     </div>
   </div>
 
-  <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
+    const placeholderImage = "img/video-placeholder.jpg";
+
     const videoPortfolio = [
       {
         title: "Ramadan Gathering – Event Coverage",
@@ -1500,6 +1041,30 @@
         driveFileId: "1fcfZmRTcnm-1VOH2xNdky4F8iuOPGug-"
       },
       {
+        title: "Engagement Campaign – Kara Tungga",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Created a soft-selling campaign video for engagement moments, highlighting elegance, emotional storytelling, and product relevance for special occasions.",
+        driveFileId: "1uCbwQyxj3omdLqr95u8Iwm1hVEgTOVOX"
+      },
+      {
+        title: "ESG Campaign – Kara Tungga",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Produced campaign content communicating Kara Tungga’s ESG values through cultural preservation, local craftsmanship, and sustainable brand storytelling.",
+        driveFileId: "1uh01y1ehBfLD8CDtG1riPAgV6vdregD_"
+      },
+      {
+        title: "Product Campaign – Kara Tungga",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Created product-focused campaign content to showcase fabric details, styling possibilities, and the premium character of Kara Tungga’s collection.",
+        driveFileId: "1hacJe9BlEdoZeX4I1peX-SPltxuFEVuM"
+      },
+      {
         title: "Kara Tungga Collection Showcase",
         role: "Social Media & Content Creator",
         client: "Kara Tungga",
@@ -1512,15 +1077,31 @@
         role: "Content Creator & Documentation",
         client: "Semeja Kerja",
         year: "2025",
-        description: "Documented authentic community interactions and transformed them into relatable and engaging social media content.",
+        description: "Documented authentic community interactions and transformed them into relatable social media content that highlights networking and shared work experiences.",
         driveFileId: "1uTp1z8SiJh-w__hQMyMDIGWL3yDeLjYN"
+      },
+      {
+        title: "WFC with Strangers – Event Recap",
+        role: "Content Creator & Documentation",
+        client: "Semeja Kerja",
+        year: "2025",
+        description: "Produced a recap video capturing the event atmosphere, participant interactions, and collaborative energy within the work community.",
+        driveFileId: "1XibRxnrhuev11X2jU395LYWpw3L_doH2"
+      },
+      {
+        title: "WFC with Strangers – Social Content",
+        role: "Content Creator & Documentation",
+        client: "Semeja Kerja",
+        year: "2025",
+        description: "Created short-form community content designed for social media engagement, focusing on casual moments, connection, and relatable work culture.",
+        driveFileId: "1mF9IvJXyVvtnpadt06RH7g0a_-WqfoYP"
       },
       {
         title: "Semeja Talks – Community Session",
         role: "Content Creator & Documentation",
         client: "Semeja Kerja",
         year: "2026",
-        description: "Produced event documentation content focusing on knowledge-sharing sessions and audience engagement moments.",
+        description: "Produced event documentation content focusing on knowledge-sharing sessions, speaker moments, and audience engagement.",
         driveFileId: "1KisnqgIYem5iP46R20h0DaVqsjZMEq4T"
       },
       {
@@ -1536,23 +1117,55 @@
         role: "Content Creator & Documentation",
         client: "Volunteer",
         year: "2026",
-        description: "Captured meaningful moments of a humanitarian initiative, focusing on emotion-driven storytelling and social impact.",
+        description: "Captured meaningful moments of a humanitarian initiative, focusing on meal preparation, distribution, documentation, and social impact.",
         driveFileId: "1ExmcrRqLIPrf_5MzCgFkMJ4vDyoAzHZt"
       },
       {
         title: "Bukber with Strangers – Community Event",
-        role: "Content Creator & Documentation",
+        role: "Creative Media",
         client: "Purwokerto Healing",
         year: "2026",
-        description: "Documented a unique social event experience, highlighting connection, atmosphere, and spontaneous interactions.",
+        description: "Documented a unique social event experience, highlighting connection, atmosphere, and spontaneous interactions among participants.",
         driveFileId: "1463K7sf8uKW3XNQpkBLT1So-1b1N2Exq"
+      },
+      {
+        title: "Funminton – Community Event",
+        role: "Creative Media",
+        client: "Purwokerto Healing",
+        year: "2026",
+        description: "Captured the energy of a community badminton event, focusing on movement, togetherness, and the fun social atmosphere of the activity.",
+        driveFileId: "1PqUosSiLvcPezPSMeyL5N_q6vWe-X8IM"
+      },
+      {
+        title: "Funminton – Trending Content",
+        role: "Creative Media",
+        client: "Purwokerto Healing",
+        year: "2026",
+        description: "Created trend-based short-form content by adapting social media formats, casual moments, and dynamic pacing from a community sports activity.",
+        driveFileId: "13saqmypT77LTZ6W9bebLduBkJ0Nc6FEi"
+      },
+      {
+        title: "Funminton – Testimonial",
+        role: "Creative Media",
+        client: "Purwokerto Healing",
+        year: "2026",
+        description: "Created testimonial-style content to capture participant impressions, community experience, and audience perspective after the event.",
+        driveFileId: "1CAqqCby6AEWJEtnY-K4TZys29SHbR_Ti"
+      },
+      {
+        title: "Funbasket – Community Event",
+        role: "Creative Media",
+        client: "Purwokerto Healing",
+        year: "2026",
+        description: "Documented a community basketball activity through short-form video, highlighting teamwork, movement, and the energetic atmosphere of the event.",
+        driveFileId: "1r9Rfw4qfGC3nB94T8jh5gJXlX1GGuaCU"
       },
       {
         title: "Data Center Awareness – Campaign Video",
         role: "Content Creator",
         client: "DomaiNesia",
         year: "2026",
-        description: "Produced an educational content piece simplifying technical concepts into engaging and easy-to-understand visuals.",
+        description: "Produced an educational content piece simplifying technical concepts into engaging and easy-to-understand visuals for non-technical audiences.",
         driveFileId: "1wO5CEvrkq0MtIzfIIKAHGD6OmNe1i5cS"
       },
       {
@@ -1560,24 +1173,24 @@
         role: "Content Creator",
         client: "Personal",
         year: "2026",
-        description: "Created visually appealing food content focusing on composition, motion, and social media engagement.",
+        description: "Created visually appealing food content focusing on composition, motion, product appeal, and social media engagement.",
         driveFileId: "1haxM7wXBt9E62POhQvMUhawh8_7PuSiT"
-      },
-      {
-        title: "Food & Beverage Content Series (Part 2)",
-        role: "Content Creator",
-        client: "Personal",
-        year: "2026",
-        description: "Explored creative angles and storytelling in culinary visuals to enhance audience interest and retention.",
-        driveFileId: "1gCTlV31bVJT_yaTLRibLZU825UOWcFlR"
       },
       {
         title: "Social Media Creative Content",
         role: "Content Creator",
         client: "Personal",
         year: "2026",
-        description: "Produced experimental content tailored for social media trends, focusing on engagement and storytelling.",
+        description: "Produced experimental content tailored for social media trends, focusing on engagement, pacing, and casual storytelling.",
         driveFileId: "16pP7yMh6lu8_ox8pcoCQozPxz5o_IYcy"
+      },
+      {
+        title: "Mini Vlog Series",
+        role: "Content Creator",
+        client: "Personal",
+        year: "2026",
+        description: "Short-form vlog content designed for quick consumption, visual rhythm, and relatable everyday storytelling.",
+        driveFileId: "1sF6RfDTZWKpGAujxD9yo3Vkz76uxAdrE"
       },
       {
         title: "Daily Vlog Series",
@@ -1591,24 +1204,16 @@
         title: "Daily Vlog Series (Part 2)",
         role: "Content Creator",
         client: "Personal",
-        year: "2025",
+        year: "2026",
         description: "Focused on storytelling flow and editing rhythm to create engaging day-to-day content.",
         driveFileId: "18XYJ5jrOOE7yJTmf1pBGyUB9Kkqm0898"
-      },
-      {
-        title: "Mini Vlog Series",
-        role: "Content Creator",
-        client: "Personal",
-        year: "2026",
-        description: "Short-form vlog content designed for quick consumption and high engagement.",
-        driveFileId: "1sF6RfDTZWKpGAujxD9yo3Vkz76uxAdrE"
       },
       {
         title: "Mini Vlog Series (Part 2)",
         role: "Content Creator",
         client: "Personal",
         year: "2026",
-        description: "Focused on storytelling efficiency within limited duration content formats.",
+        description: "Focused on storytelling efficiency within limited-duration content formats.",
         driveFileId: "13gvbToLvpE_iFe6ZnEvgJHPamtSHvE98"
       },
       {
@@ -1616,7 +1221,7 @@
         role: "Content Creator",
         client: "Personal",
         year: "2026",
-        description: "Explored dynamic cuts and pacing to improve viewer retention.",
+        description: "Explored dynamic cuts and pacing to improve viewer retention in short-form vlog content.",
         driveFileId: "1ZI97PPM9rnIMeRRG_mtG4hQjmgjbZDXK"
       },
       {
@@ -1624,7 +1229,7 @@
         role: "Content Creator",
         client: "Personal",
         year: "2026",
-        description: "Enhanced storytelling through visual transitions and cinematic framing.",
+        description: "Enhanced storytelling through visual transitions, movement, and cinematic framing.",
         driveFileId: "1KcmR7DI0i_0oPMXM4NnvjsKe-ZKPJ3mB"
       },
       {
@@ -1632,83 +1237,401 @@
         role: "Content Creator",
         client: "Personal",
         year: "2026",
-        description: "Experimented with mood, color grading, and storytelling tone.",
+        description: "Experimented with mood, color grading, and storytelling tone to build stronger visual appeal.",
         driveFileId: "1MYS0SrfxIlN9Fe-WB0yitp8GBD9eUgFP"
       }
     ];
 
-    function renderVideoPortfolio() {
-      const videoSlider = document.getElementById("video-slider");
-      if (!videoSlider) return;
+    const creativeWorks = [
+      {
+        title: "SID Ozolab - System Presentation Deck",
+        category: "presentation",
+        typeLabel: "Presentation Deck",
+        role: "Marketing",
+        client: "Ozolab",
+        year: "2026",
+        description: "Presentation deck introducing SID Ozolab, covering system overview, workflow, key features, and implementation direction for stakeholder communication.",
+        coverType: "iframe",
+        cover: "https://www.canva.com/design/DAHJt3ccy9g/on7Fusw5-yf-3wD7omqK5w/view?embed",
+        previewType: "iframe",
+        previewUrl: "https://www.canva.com/design/DAHJt3ccy9g/on7Fusw5-yf-3wD7omqK5w/view?embed",
+        sourceUrl: "https://www.canva.com/design/DAHJt3ccy9g/on7Fusw5-yf-3wD7omqK5w/view?utm_content=DAHJt3ccy9g&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        tags: ["Presentation", "System Overview", "Workflow", "Marketing"]
+      },
+      // {
+      //   title: "Canvassing TDG - Financial System Deck",
+      //   category: "presentation",
+      //   typeLabel: "Presentation Deck",
+      //   role: "System Analyst",
+      //   client: "Tata Data Global",
+      //   year: "2025",
+      //   description: "Presentation deck outlining financial data processing flow from general ledger worksheets to structured pre-audit validation.",
+      //   cover: "img/creative-tdg-deck.jpg",
+      //   previewType: "iframe",
+      //   previewUrl: "https://drive.google.com/file/d/GANTI_FILE_ID_TDG_DECK/preview",
+      //   tags: ["Finance", "General Ledger", "System Analysis", "Deck"]
+      // },
+      {
+        title: "Kara Tungga - Tenun Kara",
+        category: "carousel",
+        typeLabel: "Carousel Design",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Designed carousel content to introduce Kara Tungga’s Tenun ready-to-wear collection, highlighting local craftsmanship, cultural value, and modern wearable styling.",
+        coverType: "iframe",
+        cover: "https://www.canva.com/design/DAHJuESOc0s/A5EnzaVGdLof27yPjX_slQ/watch?embed",
+        previewType: "iframe",
+        previewUrl: "https://www.canva.com/design/DAHJuESOc0s/A5EnzaVGdLof27yPjX_slQ/watch?embed",
+        sourceUrl: "https://www.canva.com/design/DAHJuESOc0s/A5EnzaVGdLof27yPjX_slQ/watch?utm_content=DAHJuESOc0s&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        tags: ["Tenun", "Ready-to-Wear", "Craftsmanship", "Social Media"]
+      },
+      {
+        title: "Kara Tungga - Intro Tenun Kara",
+        category: "carousel",
+        typeLabel: "Carousel Design",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Created an introductory carousel for Tenun Kara, presenting the collection story, product identity, and brand message in a clear and visually engaging format.",
+        coverType: "iframe",
+        cover: "https://www.canva.com/design/DAHJuOdQ7Rw/01Luoj6f7LczGiY3IYcAVw/view?embed",
+        previewType: "iframe",
+        previewUrl: "https://www.canva.com/design/DAHJuOdQ7Rw/01Luoj6f7LczGiY3IYcAVw/view?embed",
+        sourceUrl: "https://www.canva.com/design/DAHJuOdQ7Rw/01Luoj6f7LczGiY3IYcAVw/view?utm_content=DAHJuOdQ7Rw&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        tags: ["Collection Intro", "Brand Story", "Tenun", "Carousel"]
+      },
+      {
+        title: "Kara Tungga - Fashion Show",
+        category: "carousel",
+        typeLabel: "Carousel Design",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Designed carousel content to recap Kara Tungga’s Kartini fashion show moment, highlighting runway presentation, collection details, and cultural storytelling.",
+        coverType: "iframe",
+        cover: "https://www.canva.com/design/DAHJuS4XkaY/w1lBIC3H6gikn-LCF5D17A/view?embed",
+        previewType: "iframe",
+        previewUrl: "https://www.canva.com/design/DAHJuS4XkaY/w1lBIC3H6gikn-LCF5D17A/view?embed",
+        sourceUrl: "https://www.canva.com/design/DAHJuS4XkaY/w1lBIC3H6gikn-LCF5D17A/view?utm_content=DAHJuS4XkaY&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        tags: ["Fashion Show", "Kartini", "Runway", "Event Recap"]
+      },
+      {
+        title: "Kara Tungga - Campaign ESG",
+        category: "carousel",
+        typeLabel: "Carousel Design",
+        role: "Social Media & Content Creator",
+        client: "Kara Tungga",
+        year: "2026",
+        description: "Developed ESG-focused carousel content to communicate Kara Tungga’s commitment to cultural preservation, local craftsmanship, and sustainable brand values.",
+        coverType: "iframe",
+        cover: "https://www.canva.com/design/DAHJuaYihM8/f42_HEfWZKhJpTUMsva5HA/watch?embed",
+        previewType: "iframe",
+        previewUrl: "https://www.canva.com/design/DAHJuaYihM8/f42_HEfWZKhJpTUMsva5HA/watch?embed",
+        sourceUrl: "https://www.canva.com/design/DAHJuaYihM8/f42_HEfWZKhJpTUMsva5HA/watch?utm_content=DAHJuaYihM8&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        tags: ["ESG", "Sustainability", "Culture", "Brand Values"]
+      },
+      {
+        title: "Boemi Dahayu - Campaign Product",
+        category: "campaign",
+        typeLabel: "Campaign Visual",
+        role: "Content Creator",
+        client: "Boemi Dahayu",
+        year: "2022",
+        description: "Developed product campaign visuals for Boemi Dahayu, highlighting product presentation, brand consistency, and social media promotion.",
+        coverType: "iframe",
+        cover: "https://www.canva.com/design/DAHJwcNuaW0/4fK-zoVH4ujp9vJQzcaiqw/watch?embed",
+        previewType: "iframe",
+        previewUrl: "https://www.canva.com/design/DAHJwcNuaW0/4fK-zoVH4ujp9vJQzcaiqw/watch?embed",
+        sourceUrl: "https://www.canva.com/design/DAHJwcNuaW0/4fK-zoVH4ujp9vJQzcaiqw/watch?utm_content=DAHJwcNuaW0&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        tags: ["Campaign", "Product Visual", "Social Media", "Brand Awareness"]
+      }
+    ];
 
-      videoSlider.innerHTML = "";
+    const technicalProjects = [
+      {
+        title: "Canvassing TDG - Financial Data Processing System",
+        meta: "System Analyst · 2025",
+        image: "img/tdg.jpg",
+        desc: "A system designed to process and organize financial report data and worksheets derived from general ledger records prior to audit. The system supports structured data management, improves data accuracy, and facilitates efficient financial data validation for auditing preparation.",
+        tags: ["System Analysis", "Financial Data", "General Ledger", "Audit Prep"]
+      },
+      {
+        title: "PerformEdge - Performance Assessment & KMS System",
+        meta: "Full-Stack Developer · 2024–2025",
+        image: "img/performedge.png",
+        desc: "A web-based performance assessment and knowledge management system for ULT Kemendikdasmen, featuring role-based scorecards, performance reporting, and centralized service knowledge.",
+        tags: ["Laravel", "KMS", "Scorecard", "Reporting"]
+      },
+      {
+        title: "BangKode - Learning Platform",
+        meta: "Project Manager · 2023",
+        image: "img/bangkode.png",
+        desc: "A learning platform that recommends programming language and framework tutorial videos for general audiences.",
+        tags: ["Learning Platform", "Project Management"]
+      },
+      {
+        title: "MIHR Indonesia - Company Profile",
+        meta: "Full-Stack Developer · 2023",
+        image: "img/mihr.png",
+        desc: "A company profile website designed to showcase services, mission, and company values.",
+        tags: ["Company Profile", "Web Development"]
+      },
+      {
+        title: "Tanyain - Q&A Web App",
+        meta: "Project Manager · 2023",
+        image: "img/tanyain.png",
+        desc: "A Q&A platform for asking questions, answering, and engaging in discussions across various topics.",
+        tags: ["Web App", "Q&A", "Project Management"]
+      },
+      {
+        title: "Showroom Information System",
+        meta: "System Analyst · 2023",
+        image: "img/sisgm.png",
+        desc: "A digital platform for managing vehicle inventory, customer data, and sales transactions in a showroom.",
+        tags: ["System Analysis", "Inventory", "Sales"]
+      },
+      {
+        title: "BoemiDahayu - Company Profile",
+        meta: "Project Manager · 2023",
+        image: "img/boemi.png",
+        desc: "A company profile website describing brand identity, offerings, and product marketing.",
+        tags: ["Company Profile", "Brand", "Web"]
+      },
+      {
+        title: "Blater Ngiler - E-Commerce Web App",
+        meta: "Project Manager · 2022",
+        image: "img/blater.jpg",
+        desc: "An e-commerce platform for browsing and purchasing daily products easily.",
+        tags: ["E-Commerce", "Web App", "Product Catalog"]
+      },
+      {
+        title: "Panorama Kost - Company Profile",
+        meta: "Project Manager · 2022",
+        image: "img/panor.jpg",
+        desc: "A profile website showcasing affordable lodging services and facility information.",
+        tags: ["Company Profile", "Web", "Lodging"]
+      }
+    ];
 
-      videoPortfolio.forEach(video => {
-        const thumbUrl = `https://drive.google.com/thumbnail?id=${video.driveFileId}&sz=w1000`;
-        const previewUrl = `https://drive.google.com/file/d/${video.driveFileId}/preview`;
+    const certifications = [
+      { title: "Belajar Data Science End-to-End dan Integrasi ke Web - Sinau Jogja", meta: "2025", desc: "End-to-end data science training covering EDA, ML modeling with Python, and deployment with web integration." },
+      { title: "Data Science with Python - Sinau Jogja", meta: "2024", desc: "Training covering data analysis, visualization, and ML using Python." },
+      { title: "TensorFlow Keras Bootcamp - OpenCV University", meta: "2024", desc: "Neural networks fundamentals to deep learning model development with TensorFlow & Keras." },
+      { title: "OpenCV Bootcamp - OpenCV University", meta: "2024", desc: "Image and video processing techniques using OpenCV." },
+      { title: "Flutter Mobile App Development - Sanbercode", meta: "2023", desc: "Hands-on bootcamp building cross-platform mobile apps with Flutter." },
+      { title: "React Introduction - Sanbercode", meta: "2023", desc: "React fundamentals including component architecture and responsive UI patterns." },
+      { title: "Laravel Web Development - Sanbercode", meta: "2023", desc: "Routing, authentication, database, MVC architecture, and scalable Laravel apps." }
+    ];
 
-        videoSlider.innerHTML += `
-          <div class="video-slide">
-            <div class="item-card video-card">
-              <img src="${thumbUrl}" class="video-thumb" alt="${video.title}">
-              <div class="video-body">
-                <div class="video-title">${video.title}</div>
-                <div class="video-meta">${video.client} · ${video.year}</div>
-                <span class="video-role">${video.role}</span>
-                <p class="video-desc">${video.description}</p>
-                <div class="video-actions">
-                  <button class="video-btn video-btn-primary" onclick="openVideoModal('${previewUrl}', '${video.title.replace(/'/g, "\\'")}')">
-                    Watch Video
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-      });
+    const eventCertificates = [
+      { title: "Webinar Edukasi Kekayaan Intelektual: Potensi Desain Industri & Strategi Pendaftarannya", meta: "Directorate General of Intellectual Property (DJKI) · 2025", desc: "Webinar on industrial design potential and registration strategies." },
+      { title: "Implementasi & Strategi Mewujudkan Smart City di Indonesia", meta: "Universitas Diponegoro · 2021", desc: "Discussed challenges, innovation, and planning for smart city implementation in Indonesia." },
+      { title: "Empowering Smart Management: Smart City & Smart Business", meta: "Universitas Diponegoro · 2021", desc: "Explored how smart city infrastructure and data can support business operations and sustainability." },
+      { title: "Pendidikan Karakter Mahasiswa Baru UNDIP", meta: "Universitas Diponegoro · 2020", desc: "Character building program focusing on ethics, leadership, and student development." },
+      { title: "Economic Festival UI: Driving Business with Social Media", meta: "Universitas Indonesia · 2020", desc: "Strategies and insights on leveraging social media for business growth." },
+      { title: "Economic Festival UI: New Ecosystem for Creative Digital Entrepreneur", meta: "Universitas Indonesia · 2020", desc: "Explored trends and opportunities in creative digital entrepreneurship ecosystems." },
+      { title: "Menatap Masa Depan Bersama D3 PWK PSDKU UNDIP", meta: "Universitas Diponegoro · 2021", desc: "Discussed career paths, challenges, and preparation for PWK students." }
+    ];
+
+    function escapeJs(value){ return String(value).replace(/'/g, "\\'").replace(/\n/g, " "); }
+
+    function openMediaModal(type, url, title){
+      const modal = document.getElementById("mediaModal");
+      const modalTitle = document.getElementById("mediaModalTitle");
+      const modalBody = document.getElementById("mediaModalBody");
+      modalTitle.textContent = title;
+      modalBody.innerHTML = type === "image"
+        ? `<img src="${url}" class="modalx-image" alt="${title}" onerror="this.src='${placeholderImage}'">`
+        : `<iframe src="${url}" class="modalx-frame" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden";
     }
 
-    function scrollVideoPortfolio(direction) {
+    function closeMediaModal(event){
+      if (event && event.target && event.target.id !== "mediaModal") return;
+      document.getElementById("mediaModal").classList.remove("show");
+      document.getElementById("mediaModalBody").innerHTML = "";
+      document.body.style.overflow = "";
+    }
+
+    function scrollMedia(id, direction){
+      const slider = document.getElementById(id);
+      if (!slider) return;
+      slider.scrollBy({ left: direction * slider.clientWidth * 0.92, behavior: "smooth" });
+    }
+
+    function renderVideos(){
       const slider = document.getElementById("video-slider");
       if (!slider) return;
-      const scrollAmount = slider.clientWidth * 0.92;
-      slider.scrollBy({
-        left: direction * scrollAmount,
+      slider.innerHTML = videoPortfolio.map(video => {
+        const thumbUrl = `https://drive.google.com/thumbnail?id=${video.driveFileId}&sz=w1000`;
+        const previewUrl = `https://drive.google.com/file/d/${video.driveFileId}/preview`;
+        return `
+          <div class="slide">
+            <article class="cardx media-card">
+              <img src="${thumbUrl}" class="media-thumb" alt="${video.title}" onerror="this.src='${placeholderImage}'">
+              <div class="media-body">
+                <div class="media-title">${video.title}</div>
+                <div class="media-meta">${video.client} · ${video.year}</div>
+                <span class="pill mb-2">${video.role}</span>
+                <p class="media-desc">${video.description}</p>
+                <div class="media-actions">
+                  <button class="btnx btnx-primary" onclick="openMediaModal('iframe', '${previewUrl}', '${escapeJs(video.title)}')">Watch Video</button>
+                  <a class="btnx btnx-soft" href="https://drive.google.com/file/d/${video.driveFileId}/view" target="_blank" rel="noopener">Open Drive</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCreativeWorks(filter = "all"){
+      const slider = document.getElementById("creative-slider");
+      if (!slider) return;
+
+      const data = filter === "all"
+        ? creativeWorks
+        : creativeWorks.filter(item => item.category === filter);
+
+      slider.innerHTML = data.map(work => {
+        const tags = work.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+
+        const coverHtml = work.coverType === "iframe"
+          ? `
+            <iframe
+              src="${work.cover}"
+              class="creative-slider-iframe"
+              loading="lazy"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
+          `
+          : `
+            <img
+              src="${work.cover}"
+              class="creative-slider-cover"
+              alt="${work.title}"
+              onerror="this.src='${placeholderImage}'">
+          `;
+
+        const openUrl = work.sourceUrl || work.previewUrl;
+
+        return `
+          <div class="slide">
+            <article class="cardx creative-slider-card">
+              <div class="creative-cover-wrap">
+                ${coverHtml}
+                <span class="creative-type">${work.typeLabel}</span>
+              </div>
+
+              <div class="creative-slider-body">
+                <div class="media-title">${work.title}</div>
+                <div class="media-meta">${work.client} · ${work.year}</div>
+                <p class="media-desc">${work.description}</p>
+
+                <div class="creative-tags">
+                  ${tags}
+                </div>
+
+                <div class="media-actions">
+                  <button
+                    class="btnx btnx-primary"
+                    onclick="openMediaModal('${work.previewType}', '${work.previewUrl}', '${escapeJs(work.title)}')">
+                    View Work
+                  </button>
+
+                  <a class="btnx btnx-soft" href="${openUrl}" target="_blank" rel="noopener">
+                    Open Link
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        `;
+      }).join("");
+
+      slider.scrollTo({
+        left: 0,
         behavior: "smooth"
       });
     }
 
-    function openVideoModal(url, title) {
-      document.getElementById("videoModalFrame").src = url;
-      document.getElementById("videoModalTitle").textContent = title;
-      document.getElementById("videoModal").classList.add("show");
-      document.body.style.overflow = "hidden";
+    function filterCreativeWorks(category, button){
+      document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      renderCreativeWorks(category);
     }
 
-    function closeVideoModal(event) {
-      if (event && event.target && event.target.id !== "videoModal") return;
-      document.getElementById("videoModal").classList.remove("show");
-      document.getElementById("videoModalFrame").src = "";
-      document.body.style.overflow = "";
+    function renderProjects(){
+      const grid = document.getElementById("project-grid");
+      if (!grid) return;
+
+      grid.innerHTML = technicalProjects.map(project => {
+        const tags = project.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+
+        return `
+          <article class="cardx project-card project-card-visual">
+            <img
+              src="${project.image}"
+              class="project-cover"
+              alt="${project.title}"
+              onerror="this.src='${placeholderImage}'">
+
+            <div class="project-content">
+              <div class="project-title">${project.title}</div>
+              <div class="project-meta">${project.meta}</div>
+              <p class="project-desc">${project.desc}</p>
+
+              <div class="creative-tags">
+                ${tags}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderCertifications(){
+      const grid = document.getElementById("cert-grid");
+      if (!grid) return;
+      grid.innerHTML = certifications.map(cert => `
+        <article class="cardx cert-card">
+          <div class="cert-title">${cert.title}</div>
+          <div class="project-meta">${cert.meta}</div>
+          <p class="project-desc mb-0">${cert.desc}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderEventCertificates(){
+      const grid = document.getElementById("event-cert-grid");
+      if (!grid) return;
+      grid.innerHTML = eventCertificates.map(cert => `
+        <article class="cardx cert-card">
+          <div class="cert-title">${cert.title}</div>
+          <div class="project-meta">${cert.meta}</div>
+          <p class="project-desc mb-0">${cert.desc}</p>
+        </article>
+      `).join("");
     }
 
     document.addEventListener("keydown", function(e){
-      if (e.key === "Escape") {
-        closeVideoModal();
-      }
+      if (e.key === "Escape") closeMediaModal();
     });
 
-    renderVideoPortfolio();
-  </script>
+    renderVideos();
+    renderCreativeWorks();
+    renderProjects();
+    renderCertifications();
+    renderEventCertificates();
 
-  <script>
-    // Auto close navbar on mobile after clicking link
     $(document).on('click', '.navbar-collapse.show a', function(e) {
       var $a = $(e.target);
-      if ($a.hasClass('dropdown-toggle')) return; // ignore dropdown toggle
+      if ($a.hasClass('dropdown-toggle')) return;
       $('.navbar-collapse').collapse('hide');
     });
   </script>
 </body>
 </html>
-
